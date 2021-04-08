@@ -11,7 +11,7 @@ const TeamViewPage = ({user}) => {
     useEffect(() => {
         let t = user.teams.find((team) => team.id === id);
         setTheTeam(t);
-        setTeamDisplay(<p>
+        setTeamDisplay(<div>
             <h2>Team: {t.name}</h2><br></br>
             Quarterback: {t.quarterback.name}<br></br>
             Runningback: {t.runningback.name}<br></br>
@@ -23,12 +23,22 @@ const TeamViewPage = ({user}) => {
             Right tackle: {t.rtackle.name}<br></br>
             Tightend: {t.tightend.name}
             <br></br><br></br>
+            Leftend: {t.leftend.name}<br></br>
+            Defensive Tackle: {t.dtackle.name}<br></br>
+            Rightend: {t.rightend.name} <br></br>
+            LOLB: {t.lolb.name} <br></br>
+            MLB: {t.mlb.name} <br></br>
+            ROLB: {t.rolb.name} <br></br>
+            CB: {t.cb.name}<br></br>
+            FS: {t.fs.name}<br></br>
+            SS: {t.ss.name}<br></br>
+            <br></br><br></br>
             Offense Rating:<br></br>
             Defense Rating: <br></br>
             Overall: <br></br><br></br>
 
             <button>Simulate a season!</button>
-        </p>)
+        </div>)
     }, [])
 
 

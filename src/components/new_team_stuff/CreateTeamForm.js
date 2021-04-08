@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import PlayerHighlight from "./PlayerHighlight"
 import OngoingTeam from "./OngoingTeam"
 
-const CreateTeamForm = ({sendToHome, user, flipState}) => {
+const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
     const [qbDisplay, setQbDisplay] = useState(null);
     const [rbDisplay, setRbDisplay] = useState(null);
     const [wrDisplay, setWrDisplay] = useState(null);
@@ -62,7 +62,7 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
         fs: ""
     });
     const [currentPlayer, setCurrentPlayer] = useState(null);
-    const [salaryCap, setSalaryCap] = useState("120,000,000");
+    const [salaryCap, setSalaryCap] = useState("300,000,000");
     const [lastQbPrice, setLastQbPrice] = useState(0);
     const [lastRbPrice, setLastRbPrice] = useState(0);
     const [lastWrPrice, setLastWrPrice] = useState(0);
@@ -234,7 +234,7 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
             })
                 .then(r=> r.json())
                 .then(d => {
-                    flipState();
+                    setUser(d);
                     sendToHome();
                 })
         }

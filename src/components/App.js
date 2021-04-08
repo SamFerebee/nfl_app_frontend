@@ -67,7 +67,7 @@ function App() {
             <HomePage user={currentUser} setUser={setCurrentUser} sendToLanding={sendToLanding} sendToCreateTeam={sendToCreateTeam} sendToDeleteAcct={sendToDeleteAcct} sendToEdit={sendToEdit} sendToUserTeams={sendToUserTeams}/>
           </Route>
           <Route exact path="/create_team">
-            <CreateTeamForm flipState={doFlipState} sendToHome={sendToHome} user={currentUser}/>
+            <CreateTeamForm flipState={doFlipState} setUser={setCurrentUser} sendToHome={sendToHome} user={currentUser}/>
           </Route>
           <Route exact path ="/view_user_teams">
             <UserTeams user={currentUser} sendToHome={sendToHome}/>
