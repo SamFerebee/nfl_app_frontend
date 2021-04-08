@@ -94,7 +94,7 @@ const PlayerHighlight = ({player}) => {
             <p>Age: {player.age}</p>
             <p>2021 Salary Cap Hit: {player.contract}</p>
             {statDisplay != null ? statDisplay : null}
-            <p>Overall: {player.overall}</p>
+            <p>Overall: {player.overall.toFixed(2)}</p>
             <p><img src={player.image} alt={player.name} /></p>
 
         </div>

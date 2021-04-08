@@ -33,9 +33,9 @@ const TeamViewPage = ({user}) => {
             FS: {t.fs.name}<br></br>
             SS: {t.ss.name}<br></br>
             <br></br><br></br>
-            Offense Rating:<br></br>
-            Defense Rating: <br></br>
-            Overall: <br></br><br></br>
+            Offense Rating: {t.offense_rating.toFixed(2)}<br></br>
+            Defense Rating: {t.defense_rating.toFixed(2)}<br></br>
+            Overall: {t.overall_rating.toFixed(2)}<br></br><br></br>
 
             <button>Simulate a season!</button>
         </div>)
