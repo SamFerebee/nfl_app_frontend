@@ -44,6 +44,46 @@ const PlayerHighlight = ({player}) => {
                     <p>Speed: {player.speed}</p>
                 </>
             )
+        }else if(player.position === "Left End" || player.position === "Left End" || player.position === "Defensive Tackle" ){
+            setStatDisplay(
+                <>
+                    <p>Pass Rush: {player.passrush}</p>
+                    <p>Run Stuff: {player.runstuff}</p>
+                    <p>Strength: {player.strength}</p>
+                </>
+            )
+        }else if(player.position === "LOLB" || player.position === "ROLB"){
+            setStatDisplay(
+                <>
+                    <p>Pass Rush: {player.passrush}</p>
+                    <p>Speed: {player.speed}</p>
+                    <p>Strength: {player.strength}</p>
+                </>
+            )
+        }else if(player.position === "MLB"){
+            setStatDisplay(
+                <>
+                    <p>Tackling: {player.tackling}</p>
+                    <p>Coverage: {player.coverage}</p>
+                    <p>Speed: {player.speed}</p>
+                </>
+            )
+        }else if(player.position === "FS" || player.position === "SS"){
+            setStatDisplay(
+                <>
+                    <p>Coverage: {player.coverage}</p>
+                    <p>Tackling: {player.tackling}</p>
+                    <p>Speed: {player.speed}</p>
+                </>
+            )
+        }else if(player.position === "CB"){
+            setStatDisplay(
+                <>
+                    <p>Man Coverage: {player.mancoverage}</p>
+                    <p>Zone Coverage: {player.zonecoverage}</p>
+                    <p>Speed: {player.speed}</p>
+                </>
+            )
         }
     },[player])
 

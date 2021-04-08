@@ -12,6 +12,15 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
     const [rgDisplay, setRgDisplay] = useState(null);
     const [cDisplay, setCDisplay] = useState(null);
     const [teDisplay, setTeDisplay] = useState(null);
+    const [leDisplay, setLeDisplay]= useState(null);
+    const [reDisplay, setReDisplay]= useState(null);
+    const [dtDisplay, setDtDisplay]= useState(null);
+    const [lolbDisplay, setLolbDisplay]= useState(null);
+    const [rolbDisplay, setRolbDisplay]= useState(null);
+    const [mlbDisplay, setMlbDisplay]= useState(null);
+    const [cbDisplay, setCbDisplay]= useState(null);
+    const [fsDisplay, setFsDisplay]= useState(null);
+    const [ssDisplay, setSsDisplay]= useState(null);
     const [allQbs, setAllQbs] = useState ([]);
     const [allRbs, setAllRbs] = useState ([]);
     const [allWrs, setAllWrs] = useState([]);
@@ -21,6 +30,15 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
     const [allLgs, setAllLgs] = useState([]);
     const [allCs, setAllCs] = useState([]);
     const [allTes, setAllTes] = useState([]);
+    const [allLes, setAllLes] = useState([]);
+    const [allRes, setAllRes] = useState([]);
+    const [allDts, setAllDts] = useState([]);
+    const [allLolbs, setAllLolbs] = useState([]);
+    const [allRolbs, setAllRolbs] = useState([]);
+    const [allMlbs, setAllMlbs] = useState([]);
+    const [allCbs, setAllCbs] = useState([]);
+    const [allFs, setAllFs] = useState([]);
+    const [allSs, setAllSs] = useState([]);
     const [formData, setFormData] = useState({
         teamName: "",
         user: user.id,
@@ -32,7 +50,16 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
         leftguard: "",
         center: "",
         rightguard: "",
-        tightend: ""
+        tightend: "",
+        leftend: "",
+        rightend: "",
+        dtackle: "",
+        lolb: "",
+        rolb: "",
+        mlb: "",
+        cb: "",
+        ss: "",
+        fs: ""
     });
     const [currentPlayer, setCurrentPlayer] = useState(null);
     const [salaryCap, setSalaryCap] = useState("120,000,000");
@@ -45,6 +72,15 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
     const [lastLgPrice, setLastLgPrice] = useState(0);
     const [lastRgPrice, setLastRgPrice] = useState(0);
     const [lastTePrice, setLastTePrice] = useState(0);
+    const [lastLePrice, setLastLePrice] = useState(0);
+    const [lastRePrice, setLastRePrice] = useState(0);
+    const [lastDtPrice, setLastDtPrice] = useState(0);
+    const [lastLolbPrice, setLastLolbPrice] = useState(0);
+    const [lastRolbPrice, setLastRolbPrice] = useState(0);
+    const [lastMlbPrice, setLastMlbPrice] = useState(0);
+    const [lastCbPrice, setLastCbPrice] = useState(0);
+    const [lastFsPrice, setLastFsPrice] = useState(0);
+    const [lastSsPrice, setLastSsPrice] = useState(0);
     useEffect(() => {
         fetch("http://localhost:3000/all_qbs")
             .then(r=> r.json())
@@ -109,14 +145,84 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
                 setTeDisplay(tempTe);
                 setAllTes(d);
         })
-
+        fetch("http://localhost:3000/all_les")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempLe = d.map((le) => <option value={le.name} key={le.name}>{le.name}</option>);
+                setLeDisplay(tempLe);
+                setAllLes(d);
+        })
+        fetch("http://localhost:3000/all_res")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempRe = d.map((re) => <option value={re.name} key={re.name}>{re.name}</option>);
+                setReDisplay(tempRe);
+                setAllRes(d);
+        })
+        fetch("http://localhost:3000/all_dts")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempDt = d.map((dt) => <option value={dt.name} key={dt.name}>{dt.name}</option>);
+                setDtDisplay(tempDt);
+                setAllDts(d);
+        })
+        fetch("http://localhost:3000/all_lolbs")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempLolb = d.map((lolb) => <option value={lolb.name} key={lolb.name}>{lolb.name}</option>);
+                setLolbDisplay(tempLolb);
+                setAllLolbs(d);
+        })
+        fetch("http://localhost:3000/all_rolbs")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempRolb = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                setRolbDisplay(tempRolb);
+                setAllRolbs(d);
+        })
+        fetch("http://localhost:3000/all_mlbs")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempMlb = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                setMlbDisplay(tempMlb);
+                setAllMlbs(d);
+        })
+        fetch("http://localhost:3000/all_cbs")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempCb = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                setCbDisplay(tempCb);
+                setAllCbs(d);
+        })
+        fetch("http://localhost:3000/all_ss")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempSs = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                setSsDisplay(tempSs);
+                setAllSs(d);
+        })
+        fetch("http://localhost:3000/all_fs")
+            .then(r=>r.json())
+            .then(d=> {
+                const tempFs = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                setFsDisplay(tempFs);
+                setAllFs(d);
+        })
         
     }, [])
 
     const handleSubmit = e => {
         e.preventDefault();
+        let empty;
+        for(let i in formData){
+            if(formData[i] ==="none" || formData[i] === ""){
+                empty = true;
+            }
+        }
         if(parseInt(salaryCap.replace(/,/g,'')) < 0 ){
-            alert("Too expensive!")
+            alert("Too expensive!");
+        }else if(empty){
+            alert("You Must Fill All Positions!");
         }else{
             console.log(formData)
             fetch("http://localhost:3000/create_team", {
@@ -142,101 +248,272 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
                 break;
             case "quarterback":
                 const qbPlyr = allQbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastQbPrice).toLocaleString())
                 if (qbPlyr){
                     setCurrentPlayer(qbPlyr);
                     const temp = {...formData, [e.target.name]: qbPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastQbPrice).toLocaleString())
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(qbPlyr.contract.replace(/,/g,''))).toLocaleString())
                     setLastQbPrice(parseInt(qbPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastQbPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "runningback":
-                const rbPlyr = allRbs.find((player) => player.name === e.target.value)
+                const rbPlyr = allRbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRbPrice).toLocaleString());
                 if (rbPlyr){
                     setCurrentPlayer(rbPlyr);
                     const temp = {...formData, [e.target.name]: rbPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRbPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(rbPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastRbPrice(parseInt(rbPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastRbPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "wideout":
-                const wrPlyr = allWrs.find((player) => player.name === e.target.value)
+                const wrPlyr = allWrs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastWrPrice).toLocaleString());
                 if (wrPlyr){
                     setCurrentPlayer(wrPlyr);
                     const temp = {...formData, [e.target.name]: wrPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastWrPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(wrPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastWrPrice(parseInt(wrPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastWrPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "lefttackle":
                 const ltPlyr = allLts.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastLtPrice).toLocaleString());
                 if (ltPlyr){
                     setCurrentPlayer(ltPlyr);
                     const temp ={...formData, [e.target.name]: ltPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastLtPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(ltPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastLtPrice(parseInt(ltPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastLtPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "righttackle":
                 const rtPlyr = allRts.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRtPrice).toLocaleString());
                 if (rtPlyr){
                     setCurrentPlayer(rtPlyr);
                     const temp ={...formData, [e.target.name]: rtPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRtPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(rtPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastRtPrice(parseInt(rtPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastRtPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "center":
                 const cPlyr = allCs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastCPrice).toLocaleString());
                 if (cPlyr){
                     setCurrentPlayer(cPlyr);
                     const temp ={...formData, [e.target.name]: cPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastCPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(cPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastCPrice(parseInt(cPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastCPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "rightguard":
                 const rgPlyr = allRgs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRgPrice).toLocaleString());
                 if (rgPlyr){
                     setCurrentPlayer(rgPlyr);
                     const temp ={...formData, [e.target.name]: rgPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRgPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(rgPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastRgPrice(parseInt(rgPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastRgPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "leftguard":
                 const lgPlyr = allLgs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastLgPrice).toLocaleString());
                 if (lgPlyr){
                     setCurrentPlayer(lgPlyr);
                     const temp ={...formData, [e.target.name]: lgPlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastLgPrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(lgPlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastLgPrice(parseInt(lgPlyr.contract.replace(/,/g,'')));
+                }else{
+                    setLastRtPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             case "tightend":
                 const tePlyr = allTes.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastTePrice).toLocaleString());
                 if (tePlyr){
                     setCurrentPlayer(tePlyr);
                     const temp ={...formData, [e.target.name]: tePlyr.name};
                     setFormData(temp);
-                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastTePrice).toLocaleString());
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(tePlyr.contract.replace(/,/g,''))).toLocaleString());
                     setLastTePrice(parseInt(tePlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastTePrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "leftend":
+                const lePlyr = allLes.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastLePrice).toLocaleString());
+                if (lePlyr){
+                    setCurrentPlayer(lePlyr);
+                    const temp ={...formData, [e.target.name]: lePlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(lePlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastLePrice(parseInt(lePlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastLePrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "rightend":
+                const rePlyr = allRes.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRePrice).toLocaleString());
+                if (rePlyr){
+                    setCurrentPlayer(rePlyr);
+                    const temp ={...formData, [e.target.name]: rePlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(rePlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastLePrice(parseInt(rePlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastRePrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "dtackle":
+                const dtPlyr = allDts.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastDtPrice).toLocaleString());
+                if (dtPlyr){
+                    setCurrentPlayer(dtPlyr);
+                    const temp ={...formData, [e.target.name]: dtPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(dtPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastDtPrice(parseInt(dtPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastDtPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "lolb":
+                const lolbPlyr = allLolbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastLolbPrice).toLocaleString());
+                if (lolbPlyr){
+                    setCurrentPlayer(lolbPlyr);
+                    const temp ={...formData, [e.target.name]: lolbPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(lolbPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastLolbPrice(parseInt(lolbPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastLolbPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "rolb":
+                const rolbPlyr = allRolbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastRolbPrice).toLocaleString());
+                if (rolbPlyr){
+                    setCurrentPlayer(rolbPlyr);
+                    const temp ={...formData, [e.target.name]: rolbPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(rolbPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastRolbPrice(parseInt(rolbPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastRolbPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "mlb":
+                const mlbPlyr = allMlbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastMlbPrice).toLocaleString());
+                if (mlbPlyr){
+                    setCurrentPlayer(mlbPlyr);
+                    const temp ={...formData, [e.target.name]: mlbPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(mlbPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastMlbPrice(parseInt(mlbPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastMlbPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "cb":
+                const cbPlyr = allCbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastCbPrice).toLocaleString());
+                if (cbPlyr){
+                    setCurrentPlayer(cbPlyr);
+                    const temp ={...formData, [e.target.name]: cbPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(cbPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastCbPrice(parseInt(cbPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastCbPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "fs":
+                const fsPlyr = allFs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastFsPrice).toLocaleString());
+                if (fsPlyr){
+                    setCurrentPlayer(fsPlyr);
+                    const temp ={...formData, [e.target.name]: fsPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(fsPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastFsPrice(parseInt(fsPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastFsPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "ss":
+                const ssPlyr = allSs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastSsPrice).toLocaleString());
+                if (ssPlyr){
+                    setCurrentPlayer(ssPlyr);
+                    const temp ={...formData, [e.target.name]: ssPlyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(ssPlyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastSsPrice(parseInt(ssPlyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastSsPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
                 }
                 break;
             default:
@@ -286,6 +563,42 @@ const CreateTeamForm = ({sendToHome, user, flipState}) => {
                 <select name="righttackle" onChange={changeData}>
                     <option value="none">Choose your Right Tackle</option>
                     {rtDisplay}
+                </select><br></br><br></br>
+                <select name="leftend" onChange={changeData}>
+                    <option value="none">Choose your Left End</option>
+                    {leDisplay}
+                </select><br></br><br></br>
+                <select name="dtackle" onChange={changeData}>
+                    <option value="none">Choose your Defensive Tackle</option>
+                    {dtDisplay}
+                </select><br></br><br></br>
+                <select name="rightend" onChange={changeData}>
+                    <option value="none">Choose your Right End</option>
+                    {reDisplay}
+                </select><br></br><br></br>
+                <select name="lolb" onChange={changeData}>
+                    <option value="none">Choose your Left Outside Linebacker</option>
+                    {lolbDisplay}
+                </select><br></br><br></br>
+                <select name="mlb" onChange={changeData}>
+                    <option value="none">Choose your Middle Linebacker</option>
+                    {mlbDisplay}
+                </select><br></br><br></br>
+                <select name="rolb" onChange={changeData}>
+                    <option value="none">Choose your Right Outside Linebacker</option>
+                    {rolbDisplay}
+                </select><br></br><br></br>
+                <select name="cb" onChange={changeData}>
+                    <option value="none">Choose your Cornerback</option>
+                    {cbDisplay}
+                </select><br></br><br></br>
+                <select name="fs" onChange={changeData}>
+                    <option value="none">Choose your Free Safety</option>
+                    {fsDisplay}
+                </select><br></br><br></br>
+                <select name="ss" onChange={changeData}>
+                    <option value="none">Choose your Strong Safety</option>
+                    {ssDisplay}
                 </select><br></br><br></br>
                 <input type="submit" />
             </form>
