@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
+import CompareTeamPage from "./CompareTeamPage"
 
 const TeamViewPage = ({user}) => {
     const params = useParams();
     const id = parseInt(params.id);
-
+    const [compare, setCompare] = useState(false);
     const [theTeam, setTheTeam] = useState(null);
     const [teamDisplay, setTeamDisplay] = useState(null)
 
@@ -36,8 +37,6 @@ const TeamViewPage = ({user}) => {
             Offense Rating: {t.offense_rating.toFixed(2)}<br></br>
             Defense Rating: {t.defense_rating.toFixed(2)}<br></br>
             Overall: {t.overall_rating.toFixed(2)}<br></br><br></br>
-
-            <button>Simulate a season!</button>
         </div>)
     }, [])
 
@@ -45,6 +44,10 @@ const TeamViewPage = ({user}) => {
     return (
         <>
             {theTeam === null ? null : teamDisplay}
+            <br></br>
+            <button>Simulate a season!</button>
+            <button onClick={() => setCompare((s)=>!s)}>Compare Team</button>
+            {compare ? <CompareTeamPage userTeam={theTeam}/> : null}
             {/* <Link to="/home">Return Home</Link> */}
         </>
     )

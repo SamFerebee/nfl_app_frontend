@@ -36,7 +36,7 @@ const PlayerHighlight = ({player}) => {
                     <p>Run blocking: {player.run_block}</p>
                 </>
             )
-        }else if(player.position === "Tight end"){
+        }else if(player.position === "Tight End"){
             setStatDisplay(
                 <>
                     <p>Blocking: {player.blocking}</p>
