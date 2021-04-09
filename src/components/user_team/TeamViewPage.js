@@ -17,6 +17,7 @@ const TeamViewPage = ({user}) => {
             Quarterback: {t.quarterback.name}<br></br>
             Runningback: {t.runningback.name}<br></br>
             WR1: {t.wide_receiver.name}<br></br>
+            WR2: {t.wr2.name}<br></br>
             Left tackle: {t.ltackle.name}<br></br>
             Left guard: {t.lguard.name}<br></br>
             Center: {t.center.name}<br></br>
@@ -31,6 +32,7 @@ const TeamViewPage = ({user}) => {
             MLB: {t.mlb.name} <br></br>
             ROLB: {t.rolb.name} <br></br>
             CB: {t.cb.name}<br></br>
+            CB2: {t.cb2.name}<br></br>
             FS: {t.fs.name}<br></br>
             SS: {t.ss.name}<br></br>
             <br></br><br></br>

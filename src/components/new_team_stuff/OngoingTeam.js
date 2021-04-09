@@ -10,6 +10,7 @@ const OngoingTeam = ({team}) => {
                 QB: {team.quarterback}<br></br>
                 RB: {team.runningback}<br></br>
                 WR: {team.wideout}<br></br>
+                WR2: {team.wr2}<br></br>
                 TE: {team.tightend}<br></br>
                 LT: {team.lefttackle}<br></br>
                 LG: {team.leftguard}<br></br>
@@ -24,6 +25,7 @@ const OngoingTeam = ({team}) => {
                 MLB: {team.mlb}<br></br>
                 ROLB: {team.rolb}<br></br>
                 CB: {team.cb}<br></br>
+                CB2: {team.cb2}<br></br>
                 FS: {team.fs}<br></br>
                 SS: {team.ss}
            </div>

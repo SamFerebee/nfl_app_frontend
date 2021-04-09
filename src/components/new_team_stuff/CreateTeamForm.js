@@ -59,7 +59,9 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
         mlb: "",
         cb: "",
         ss: "",
-        fs: ""
+        fs: "",
+        cb2: "",
+        wr2: ""
     });
     const [currentPlayer, setCurrentPlayer] = useState(null);
     const [salaryCap, setSalaryCap] = useState("300,000,000");
@@ -81,6 +83,8 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
     const [lastCbPrice, setLastCbPrice] = useState(0);
     const [lastFsPrice, setLastFsPrice] = useState(0);
     const [lastSsPrice, setLastSsPrice] = useState(0);
+    const [lastWr2Price, setLastWr2Price] = useState(0);
+    const [lastCb2Price, setLastCb2Price] = useState(0);
     useEffect(() => {
         fetch("http://localhost:3000/all_qbs")
             .then(r=> r.json())
@@ -223,6 +227,8 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
             alert("Too expensive!");
         }else if(empty){
             alert("You Must Fill All Positions!");
+        }else if(formData.wideout === formData.wr2 || formData.cb === formData.cb2){
+            alert("You cannot have the same player twice!");
         }else{
             console.log(formData)
             fetch("http://localhost:3000/create_team", {
@@ -287,6 +293,21 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
                     setLastWrPrice(parseInt(wrPlyr.contract.replace(/,/g,'')))
                 }else{
                     setLastWrPrice(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
+            case "wr2":
+                const wr2Plyr = allWrs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastWr2Price).toLocaleString());
+                if (wr2Plyr){
+                    setCurrentPlayer(wr2Plyr);
+                    const temp = {...formData, [e.target.name]: wr2Plyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(wr2Plyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastWr2Price(parseInt(wr2Plyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastWr2Price(0);
                     const temp = {...formData, [e.target.name]: e.target.value};
                     setFormData(temp);
                 }
@@ -486,6 +507,21 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
                     setFormData(temp);
                 }
                 break;
+            case "cb2":
+                const cb2Plyr = allCbs.find((player) => player.name === e.target.value);
+                setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastCb2Price).toLocaleString());
+                if (cb2Plyr){
+                    setCurrentPlayer(cb2Plyr);
+                    const temp ={...formData, [e.target.name]: cb2Plyr.name};
+                    setFormData(temp);
+                    setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(cb2Plyr.contract.replace(/,/g,''))).toLocaleString());
+                    setLastCb2Price(parseInt(cb2Plyr.contract.replace(/,/g,'')))
+                }else{
+                    setLastCb2Price(0);
+                    const temp = {...formData, [e.target.name]: e.target.value};
+                    setFormData(temp);
+                }
+                break;
             case "fs":
                 const fsPlyr = allFs.find((player) => player.name === e.target.value);
                 setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) + lastFsPrice).toLocaleString());
@@ -540,6 +576,10 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
                     <option value="none">Choose your WR1</option>
                     {wrDisplay}
                 </select><br></br><br></br>
+                <select name="wr2" onChange={changeData}>
+                    <option value="none">Choose your WR2</option>
+                    {wrDisplay}
+                </select><br></br><br></br>
                 <select name="tightend" onChange={changeData}>
                     <option value="none">Choose your Tightend</option>
                     {teDisplay}
@@ -590,6 +630,10 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
                 </select><br></br><br></br>
                 <select name="cb" onChange={changeData}>
                     <option value="none">Choose your Cornerback</option>
+                    {cbDisplay}
+                </select><br></br><br></br>
+                <select name="cb2" onChange={changeData}>
+                    <option value="none">Choose your CB2</option>
                     {cbDisplay}
                 </select><br></br><br></br>
                 <select name="fs" onChange={changeData}>
