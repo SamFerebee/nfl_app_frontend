@@ -89,126 +89,126 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
         fetch("http://localhost:3000/all_qbs")
             .then(r=> r.json())
             .then(d => {
-                const tempQb = d.map((qb) => <option key={qb.name} value={qb.name}>{qb.name}</option>);
+                const tempQb = d.map((qb) => <option key={qb.name} value={qb.name}>{qb.name} ({qb.team}) - ${qb.contract}</option>);
                 setQbDisplay(tempQb);
                 setAllQbs(d);
             })
         fetch("http://localhost:3000/all_rbs")
             .then(r=>r.json())
             .then(d=> {
-                const tempRb = d.map((rb) => <option key={rb.name} value={rb.name}>{rb.name}</option>);
+                const tempRb = d.map((rb) => <option key={rb.name} value={rb.name}>{rb.name} ({rb.team}) - ${rb.contract}</option>);
                 setRbDisplay(tempRb);
                 setAllRbs(d);
             })
         fetch("http://localhost:3000/all_wrs")
             .then(r=>r.json())
             .then(d=> {
-                const tempWr = d.map((wr) => <option key={wr.name} value={wr.name}>{wr.name}</option>);
+                const tempWr = d.map((wr) => <option key={wr.name} value={wr.name}>{wr.name} ({wr.team}) - ${wr.contract}</option>);
                 setWrDisplay(tempWr);
                 setAllWrs(d);
             })
         fetch("http://localhost:3000/all_lts")
             .then(r=>r.json())
             .then(d=> {
-                const tempLt = d.map((lt) => <option key={lt.name} value={lt.name}>{lt.name}</option>);
+                const tempLt = d.map((lt) => <option key={lt.name} value={lt.name}>{lt.name} ({lt.team}) - ${lt.contract}</option>);
                 setLtDisplay(tempLt);
                 setAllLts(d);
             })
         fetch("http://localhost:3000/all_rts")
             .then(r=>r.json())
             .then(d=> {
-                const tempRt = d.map((rt) => <option key={rt.name} value={rt.name}>{rt.name}</option>);
+                const tempRt = d.map((rt) => <option key={rt.name} value={rt.name}>{rt.name} ({rt.team}) - ${rt.contract}</option>);
                 setRtDisplay(tempRt);
                 setAllRts(d);
         })
         fetch("http://localhost:3000/all_cs")
             .then(r=>r.json())
             .then(d=> {
-                const tempC = d.map((c) => <option key={c.name} value={c.name}>{c.name}</option>);
+                const tempC = d.map((c) => <option key={c.name} value={c.name}>{c.name} ({c.team}) - ${c.contract}</option>);
                 setCDisplay(tempC);
                 setAllCs(d);
         })
         fetch("http://localhost:3000/all_lgs")
             .then(r=>r.json())
             .then(d=> {
-                const tempLg = d.map((lg) => <option key={lg.name} value={lg.name}>{lg.name}</option>);
+                const tempLg = d.map((lg) => <option key={lg.name} value={lg.name}>{lg.name} ({lg.team}) - ${lg.contract}</option>);
                 setLgDisplay(tempLg);
                 setAllLgs(d);
         })
         fetch("http://localhost:3000/all_rgs")
             .then(r=>r.json())
             .then(d=> {
-                const tempRg = d.map((rg) => <option key={rg.name} value={rg.name}>{rg.name}</option>);
+                const tempRg = d.map((rg) => <option key={rg.name} value={rg.name}>{rg.name} ({rg.team}) - ${rg.contract}</option>);
                 setRgDisplay(tempRg);
                 setAllRgs(d);
         })
         fetch("http://localhost:3000/all_tes")
             .then(r=>r.json())
             .then(d=> {
-                const tempTe = d.map((te) => <option value={te.name} key={te.name}>{te.name}</option>);
+                const tempTe = d.map((te) => <option value={te.name} key={te.name}>{te.name} ({te.team}) - ${te.contract}</option>);
                 setTeDisplay(tempTe);
                 setAllTes(d);
         })
         fetch("http://localhost:3000/all_les")
             .then(r=>r.json())
             .then(d=> {
-                const tempLe = d.map((le) => <option value={le.name} key={le.name}>{le.name}</option>);
+                const tempLe = d.map((le) => <option value={le.name} key={le.name}>{le.name} ({le.team}) - ${le.contract}</option>);
                 setLeDisplay(tempLe);
                 setAllLes(d);
         })
         fetch("http://localhost:3000/all_res")
             .then(r=>r.json())
             .then(d=> {
-                const tempRe = d.map((re) => <option value={re.name} key={re.name}>{re.name}</option>);
+                const tempRe = d.map((re) => <option value={re.name} key={re.name}>{re.name} ({re.team}) - ${re.contract}</option>);
                 setReDisplay(tempRe);
                 setAllRes(d);
         })
         fetch("http://localhost:3000/all_dts")
             .then(r=>r.json())
             .then(d=> {
-                const tempDt = d.map((dt) => <option value={dt.name} key={dt.name}>{dt.name}</option>);
+                const tempDt = d.map((dt) => <option value={dt.name} key={dt.name}>{dt.name} ({dt.team}) - ${dt.contract}</option>);
                 setDtDisplay(tempDt);
                 setAllDts(d);
         })
         fetch("http://localhost:3000/all_lolbs")
             .then(r=>r.json())
             .then(d=> {
-                const tempLolb = d.map((lolb) => <option value={lolb.name} key={lolb.name}>{lolb.name}</option>);
+                const tempLolb = d.map((lolb) => <option value={lolb.name} key={lolb.name}>{lolb.name} ({lolb.team}) - ${lolb.contract}</option>);
                 setLolbDisplay(tempLolb);
                 setAllLolbs(d);
         })
         fetch("http://localhost:3000/all_rolbs")
             .then(r=>r.json())
             .then(d=> {
-                const tempRolb = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                const tempRolb = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setRolbDisplay(tempRolb);
                 setAllRolbs(d);
         })
         fetch("http://localhost:3000/all_mlbs")
             .then(r=>r.json())
             .then(d=> {
-                const tempMlb = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                const tempMlb = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setMlbDisplay(tempMlb);
                 setAllMlbs(d);
         })
         fetch("http://localhost:3000/all_cbs")
             .then(r=>r.json())
             .then(d=> {
-                const tempCb = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                const tempCb = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setCbDisplay(tempCb);
                 setAllCbs(d);
         })
         fetch("http://localhost:3000/all_ss")
             .then(r=>r.json())
             .then(d=> {
-                const tempSs = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                const tempSs = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setSsDisplay(tempSs);
                 setAllSs(d);
         })
         fetch("http://localhost:3000/all_fs")
             .then(r=>r.json())
             .then(d=> {
-                const tempFs = d.map((player) => <option value={player.name} key={player.name}>{player.name}</option>);
+                const tempFs = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setFsDisplay(tempFs);
                 setAllFs(d);
         })
