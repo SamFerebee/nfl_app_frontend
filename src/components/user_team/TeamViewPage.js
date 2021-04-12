@@ -2,12 +2,13 @@ import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
 import CompareTeamPage from "./CompareTeamPage"
 
-const TeamViewPage = ({user}) => {
+const TeamViewPage = ({user, setUser}) => {
     const params = useParams();
     const id = parseInt(params.id);
     const [compare, setCompare] = useState(false);
     const [theTeam, setTheTeam] = useState(null);
     const [teamDisplay, setTeamDisplay] = useState(null)
+    const [showSeasons, setShowSeasons] = useState(null);
 
     useEffect(() => {
         let t = user.teams.find((team) => team.id === id);
@@ -39,17 +40,36 @@ const TeamViewPage = ({user}) => {
             Offense Rating: {t.offense_rating.toFixed(2)}<br></br>
             Defense Rating: {t.defense_rating.toFixed(2)}<br></br>
             Overall: {t.overall_rating.toFixed(2)}<br></br><br></br>
-        </div>)
+        </div>);
+        const tseason = t.seasons.map((s) => <p key={s.id}><Link to={`/play/${t.id}/${s.id}`}> Season {s.id} </Link> </p>)
+        setShowSeasons(tseason);
     }, [])
 
+    const generateSeason = () => {
+        fetch("http://localhost:3000/create_season",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({user: user.id, team: theTeam.id})
+        })
+            .then(r=>r.json())
+            .then(d => {
+                setUser(d);
+                let t = d.teams.find((team) => team.id === id);
+                const tseason = t.seasons.map((s) => <p key={s.id}><Link to={`/play/${t.id}/${s.id}`}> Season {s.id} </Link> </p>)
+                setShowSeasons(tseason);
+            })
+    }
 
     return (
         <>
             {theTeam === null ? null : teamDisplay}
             <br></br>
-            <button>Simulate a season!</button>
+            <button onClick={generateSeason}>Generate a season!</button>
             <button onClick={() => setCompare((s)=>!s)}>Compare Team</button>
             {compare ? <CompareTeamPage userTeam={theTeam}/> : null}
+            {showSeasons}
             {/* <Link to="/home">Return Home</Link> */}
         </>
     )

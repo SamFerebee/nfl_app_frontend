@@ -10,6 +10,7 @@ import EditAccount from "./user_stuff/EditAccount"
 import EditPassword from "./user_stuff/EditPassword"
 import UserTeams from "./user_team/UserTeams"
 import TeamViewPage from "./user_team/TeamViewPage"
+import SeasonView from "./SeasonView"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -73,7 +74,10 @@ function App() {
             <UserTeams user={currentUser} sendToHome={sendToHome}/>
           </Route>
           <Route exact path="/teams/:id">
-              <TeamViewPage user={currentUser}/>
+              <TeamViewPage user={currentUser} setUser={setCurrentUser}/>
+          </Route>
+          <Route exact path="/play/:team/:season">
+            <SeasonView user={currentUser}/>
           </Route>
           <Route exact path="/delete_account">
             <DeleteAccount setUser={setCurrentUser} user={currentUser} sendToLanding={sendToLanding}/>
