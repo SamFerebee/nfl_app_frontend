@@ -22,12 +22,12 @@ const CompareTeamPage = ({userTeam}) => {
         if (theTeam){
             setComparedTeamStats(
                 <>
-                    <h2>{theTeam.name}</h2>
-                    Offense Rating: {theTeam.offense_rating.toFixed(2)}<br></br>
-                    Defense Rating : {theTeam.defense_rating.toFixed(2)}<br></br>
-                    Overall: {theTeam.overall_rating.toFixed(2)}
+                    <h2>{theTeam.name} vs {userTeam.name}</h2>
+                    Offense Rating: {theTeam.offense_rating.toFixed(2)} vs. {userTeam.offense_rating.toFixed(2)}<br></br>
+                    Defense Rating : {theTeam.defense_rating.toFixed(2)} vs. {userTeam.defense_rating.toFixed(2)}<br></br>
+                    Overall: {theTeam.overall_rating.toFixed(2)} vs. {userTeam.overall_rating.toFixed(2)}
                 </>
-            )
+            );
         }
     }
 
