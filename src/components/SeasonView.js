@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
 import ScoreDisplay from "./ScoreDisplay"
 
-const SeasonView = ({user, setUser}) => {
+const SeasonView = ({user, setUser, sendToTeamView}) => {
     const params = useParams();
     const teamId = parseInt(params.team);
     const team = user.teams.find((t)=> t.id === teamId);
@@ -12,7 +12,8 @@ const SeasonView = ({user, setUser}) => {
     const [recordDisplay, setRecordDisplay] = useState(null);
 
     useEffect(()=>{
-        const list = season.games.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played ? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
+        const orderedGames = season.games.sort((a,b)=> parseInt(a.week) - (b.week))
+        const list = orderedGames.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played ? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
         setOpponentList(list);
         setRecordDisplay(
             <>
@@ -37,7 +38,8 @@ const SeasonView = ({user, setUser}) => {
     return (
         <>
         {opponentList}
-        {recordDisplay}
+        {recordDisplay}<br></br><br></br>
+        <Link to={`/teams/${team.id}`}> Return to Team View </Link>
         </>
     )
 }
