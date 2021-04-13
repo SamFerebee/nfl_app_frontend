@@ -9,12 +9,47 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
     const [theTeam, setTheTeam] = useState(null);
     const [teamDisplay, setTeamDisplay] = useState(null)
     const [showSeasons, setShowSeasons] = useState(null);
+    const [editName, setEditName] = useState(false);
+    const [newName, setNewName] = useState({name: ""});
+
+    const handleEditNameSubmit = e => {
+        e.preventDefault();
+        setEditName((s)=>!s);
+        fetch(`http://localhost:3000/${user.id}/${theTeam.id}/change_name`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({name: newName.name})
+        })
+            .then(r=>r.json())
+            .then(d=>{
+                setUser(d);
+                setNewName("");
+            })
+    }
+
+    const nameChange = e => {
+        const key = e.target.name;
+        const temp = {...newName, [key]: e.target.value};
+        setNewName(temp);
+    }
+
+    const enableEdit = () =>{
+        setEditName((s)=>!s)
+    }
+
+    const editNameForm = (
+        <form onSubmit={handleEditNameSubmit}>
+            <input type="text" name="name" placeholder="New Name" onChange={nameChange} value={newName.name} /> <input type="submit" />
+        </form>
+    )
 
     useEffect(() => {
         let t = user.teams.find((team) => team.id === id);
         setTheTeam(t);
         setTeamDisplay(<div>
-            <h2>Team: {t.name}</h2><br></br>
+            <h2>Team: {t.name} <button onClick={enableEdit}>edit name</button> {editName ? editNameForm : null }</h2><br></br>
             Quarterback: {t.quarterback.name}<br></br>
             Runningback: {t.runningback.name}<br></br>
             WR1: {t.wide_receiver.name}<br></br>
@@ -43,7 +78,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
         </div>);
         const tseason = t.seasons.map((s, index) => <p key={s.id}><Link to={`/play/${t.id}/${s.id}`}> Season {index + 1} </Link> </p>)
         setShowSeasons(tseason);
-    }, [])
+    }, [editName, user])
 
     const generateSeason = () => {
         fetch("http://localhost:3000/create_season",{
