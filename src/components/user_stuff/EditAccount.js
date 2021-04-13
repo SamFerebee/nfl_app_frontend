@@ -29,7 +29,6 @@ const EditAccount = ({user, sendToHome, sendToEditPassword, setUser}) => {
         })
             .then(r=> r.json())
             .then(result => {
-                console.log(result);
                 setUser(result);
                 sendToHome();
             })

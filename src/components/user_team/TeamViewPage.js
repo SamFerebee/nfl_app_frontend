@@ -68,7 +68,6 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
         })
             .then(r=> r.json())
             .then(d=>{
-                console.log(d);
                 setUser(d);
                 sendToTeamList();
             })
@@ -83,7 +82,8 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
             {compare ? <CompareTeamPage userTeam={theTeam}/> : null}
             {showSeasons}<br></br><br></br>
             <button onClick={deleteTeam}>Delete This Team</button>
-            {/* <Link to="/home">Return Home</Link> */}
+            <br></br><br></br>
+            <Link to="/home">Return Home</Link>
         </>
     )
 }
