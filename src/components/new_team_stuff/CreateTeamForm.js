@@ -230,7 +230,6 @@ const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
         }else if(formData.wideout === formData.wr2 || formData.cb === formData.cb2){
             alert("You cannot have the same player twice!");
         }else{
-            console.log(formData)
             fetch("http://localhost:3000/create_team", {
                 method: "POST",
                 headers: {

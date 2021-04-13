@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
 
-const SeasonView = ({user}) => {
+const SeasonView = ({user, setUser}) => {
     const params = useParams();
     const teamId = parseInt(params.team);
     const team = user.teams.find((t)=> t.id === teamId);
     const seasonId = parseInt(params.season);
-    const season = team.seasons.find((s)=> s.id === seasonId);
+    const season = user.seasons.find((s)=> s.id === seasonId);
     const [opponentList, setOpponentList] = useState(null);
     const [recordDisplay, setRecordDisplay] = useState(null);
 
     useEffect(()=>{
-        const list = season.opponents.map((s) => <p>Week {s.id}: {s.name} <button value={s.name} onClick={simGame}>Simulate Game</button></p>)
+        const list = season.games.map((s) => <p key={s.id}>Week {s.id}: team: {s.nflteam_id} {s.played ? s.result : <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
         setOpponentList(list);
         setRecordDisplay(
             <>
@@ -19,10 +19,18 @@ const SeasonView = ({user}) => {
                 {season.wins} - {season.losses}
             </>
         )
-    }, [])
+    }, [user])
 
     const simGame = e => {
-        console.log(e.target.value);
+        fetch("http://localhost:3000/playgame",{
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({user: user.id, season: season.id, game: e.target.value})
+        })
+            .then(r=>r.json())
+            .then(d=>setUser(d))
     }
 
     return (

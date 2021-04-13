@@ -77,7 +77,7 @@ function App() {
               <TeamViewPage user={currentUser} setUser={setCurrentUser}/>
           </Route>
           <Route exact path="/play/:team/:season">
-            <SeasonView user={currentUser}/>
+            <SeasonView user={currentUser} setUser={setCurrentUser}/>
           </Route>
           <Route exact path="/delete_account">
             <DeleteAccount setUser={setCurrentUser} user={currentUser} sendToLanding={sendToLanding}/>
