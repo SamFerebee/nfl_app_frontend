@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import PlayerHighlight from "./PlayerHighlight"
 import OngoingTeam from "./OngoingTeam"
 
-const CreateTeamForm = ({sendToHome, user, flipState, setUser}) => {
+const CreateTeamForm = ({sendToHome, user, setUser}) => {
     const [qbDisplay, setQbDisplay] = useState(null);
     const [rbDisplay, setRbDisplay] = useState(null);
     const [wrDisplay, setWrDisplay] = useState(null);

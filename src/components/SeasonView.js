@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
+import ScoreDisplay from "./ScoreDisplay"
 
 const SeasonView = ({user, setUser}) => {
     const params = useParams();
@@ -11,7 +12,7 @@ const SeasonView = ({user, setUser}) => {
     const [recordDisplay, setRecordDisplay] = useState(null);
 
     useEffect(()=>{
-        const list = season.games.map((s) => <p key={s.id}>Week {s.id}: team: {s.nflteam_id} {s.played ? s.result : <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
+        const list = season.games.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played ? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
         setOpponentList(list);
         setRecordDisplay(
             <>

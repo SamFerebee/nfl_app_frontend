@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
 import CompareTeamPage from "./CompareTeamPage"
 
-const TeamViewPage = ({user, setUser}) => {
+const TeamViewPage = ({user, setUser, sendToTeamList}) => {
     const params = useParams();
     const id = parseInt(params.id);
     const [compare, setCompare] = useState(false);
@@ -62,6 +62,18 @@ const TeamViewPage = ({user, setUser}) => {
             })
     }
 
+    const deleteTeam = e => {
+        fetch(`http://localhost:3000/delete_team/${user.id}/${theTeam.id}`,{
+            method: "DELETE",
+        })
+            .then(r=> r.json())
+            .then(d=>{
+                console.log(d);
+                setUser(d);
+                sendToTeamList();
+            })
+    }
+
     return (
         <>
             {theTeam === null ? null : teamDisplay}
@@ -69,7 +81,8 @@ const TeamViewPage = ({user, setUser}) => {
             <button onClick={generateSeason}>Generate a season!</button>
             <button onClick={() => setCompare((s)=>!s)}>Compare Team</button>
             {compare ? <CompareTeamPage userTeam={theTeam}/> : null}
-            {showSeasons}
+            {showSeasons}<br></br><br></br>
+            <button onClick={deleteTeam}>Delete This Team</button>
             {/* <Link to="/home">Return Home</Link> */}
         </>
     )

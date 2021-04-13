@@ -15,10 +15,6 @@ import SeasonView from "./SeasonView"
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
-  const [flipState, setFlipState] = useState(false);
-  const doFlipState = () => {
-    setFlipState((s) => !s);
-  }
 
   ////SEND TO ROUTES
   const sendToLogin = () => history.push("/login");
@@ -68,13 +64,13 @@ function App() {
             <HomePage user={currentUser} setUser={setCurrentUser} sendToLanding={sendToLanding} sendToCreateTeam={sendToCreateTeam} sendToDeleteAcct={sendToDeleteAcct} sendToEdit={sendToEdit} sendToUserTeams={sendToUserTeams}/>
           </Route>
           <Route exact path="/create_team">
-            <CreateTeamForm flipState={doFlipState} setUser={setCurrentUser} sendToHome={sendToHome} user={currentUser}/>
+            <CreateTeamForm setUser={setCurrentUser} sendToHome={sendToHome} user={currentUser}/>
           </Route>
           <Route exact path ="/view_user_teams">
             <UserTeams user={currentUser} sendToHome={sendToHome}/>
           </Route>
           <Route exact path="/teams/:id">
-              <TeamViewPage user={currentUser} setUser={setCurrentUser}/>
+              <TeamViewPage user={currentUser} setUser={setCurrentUser} sendToTeamList={sendToUserTeams}/>
           </Route>
           <Route exact path="/play/:team/:season">
             <SeasonView user={currentUser} setUser={setCurrentUser}/>
