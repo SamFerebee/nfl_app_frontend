@@ -55,13 +55,13 @@ const LoginPage = ({setCurrentUser, sendToHome}) => {
       }
 
     return (
-        <>
-    <form onSubmit={login}>
-        <input type="text" name="username" placeholder="Username" onChange={handleChange} value={formInfo.name}/> <br></br>
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} value={formInfo.password}/> <br></br>
-        <input type="submit"/>
-    </form>
-        </>
+        <div id="loginBox">
+          <form onSubmit={login}>
+              <input className="loginField" type="text" name="username" placeholder="Username" onChange={handleChange} value={formInfo.name}/> <br></br><br></br>
+              <input className="loginField" type="password" name="password" placeholder="Password" onChange={handleChange} value={formInfo.password}/> <br></br><br></br>
+              <input type="submit" id="loginSubmit"/>
+          </form>
+        </div>
     )
 }
 

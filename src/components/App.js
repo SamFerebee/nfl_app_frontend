@@ -45,7 +45,7 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div id="body">
       {currentUser === null ? (
         <Switch>
           <Route exact path="/">
@@ -88,7 +88,7 @@ function App() {
       )}
 
 
-    </>
+    </div>
   );
 }
 

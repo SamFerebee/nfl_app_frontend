@@ -27,4 +27,65 @@ code {
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
+.landingBox {
+  text-align: center;
+  font-size: 20px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.landingBox > button {
+  background-color: lightskyblue;
+  font-size: 20px;
+  padding: 15px 20px;
+  border-radius: 12px;
+
+}
+.landingBox > button:hover {
+  background-color: magenta;
+
+}
+
+#loginBox, #createAcctBox {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#loginSubmit, #createAcctSubmit {
+  background-color: lightskyblue;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 12px;
+
+}
+#loginSubmit:hover, #createAcctSubmit:hover {
+  background-color: magenta;
+}
+
+
+input::placeholder{
+  font-style: italic;
+  color: grey;
+}
+
+.loginField, .signupField {
+  background-color: lightskyblue;
+  border-radius: 8px;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 7px;
+  padding-left: 7px;
+  font-size: 15px;
+  
+}
 

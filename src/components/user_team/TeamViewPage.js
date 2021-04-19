@@ -78,7 +78,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
         </div>);
         const tseason = t.seasons.map((s, index) => <p key={s.id}><Link to={`/play/${t.id}/${s.id}`}> Season {index + 1} </Link> </p>)
         setShowSeasons(tseason);
-    }, [editName, user])
+    }, [editName, user, newName])
 
     const generateSeason = () => {
         fetch("http://localhost:3000/create_season",{
