@@ -424,7 +424,7 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
                     const temp ={...formData, [e.target.name]: rePlyr.name};
                     setFormData(temp);
                     setSalaryCap((s) => (parseInt(s.replace(/,/g,'')) - parseInt(rePlyr.contract.replace(/,/g,''))).toLocaleString());
-                    setLastLePrice(parseInt(rePlyr.contract.replace(/,/g,'')))
+                    setLastRePrice(parseInt(rePlyr.contract.replace(/,/g,'')))
                 }else{
                     setLastRePrice(0);
                     const temp = {...formData, [e.target.name]: e.target.value};

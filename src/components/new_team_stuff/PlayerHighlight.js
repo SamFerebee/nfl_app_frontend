@@ -44,7 +44,7 @@ const PlayerHighlight = ({player}) => {
                     <p>Speed: {player.speed}</p>
                 </span>
             )
-        }else if(player.position === "Left End" || player.position === "Left End" || player.position === "Defensive Tackle" ){
+        }else if(player.position === "Left End" || player.position === "Right End" || player.position === "Defensive Tackle" ){
             setStatDisplay(
                 <span id="statDisplay">
                     <p>Pass Rush: {player.passrush}</p>

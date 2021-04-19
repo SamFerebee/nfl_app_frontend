@@ -166,13 +166,13 @@ input::placeholder{
 
 #playerInfo{
   position:absolute;
-  left: 275px;
+  left: 23%;
   bottom: 15%;
 }
 
 #statDisplay{
   position:absolute;
-  right: 400px;
+  right: 30%;
   bottom: 11%
 }
 
@@ -207,6 +207,12 @@ input::placeholder{
 #createTeamForm{
   top: 10%;
   position:absolute;
+  left: 50%;
+  margin: 0;
+  -ms-transform: translate(-270%, 0%);
+  transform: translate(-270%, 0%);
+
+
 }
 
 #fullOngoingTeam{
@@ -300,7 +306,7 @@ input::placeholder{
 }
 
 #fullCreateForm{
-  border:2px solid black;
+  border:5px solid black;
 }
 
 #submitNewTeam{
