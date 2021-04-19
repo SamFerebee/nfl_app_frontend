@@ -558,101 +558,111 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
     }
 
     return (
-        <>
+        <div id="fullCreateForm">
             <h2 id="remainingbudget">REMAINING BUDGET: ${salaryCap}</h2>
             <span id="createTeamName">Team name: <input type="text" name="teamName" onChange={changeData} value={formData.teamName} /> </span>
             <form id="createTeamForm" onSubmit={handleSubmit}>
                 <br></br>
-                <h3 className="createFormPositionGroup">Offense Skill Positions</h3>
-                <select name="quarterback" onChange={changeData}>
-                    <option value="none">Choose your QB</option>
-                    {qbDisplay}
-                </select>{` `}
-                <select name="runningback" onChange={changeData}>
-                    <option value="none">Choose your RB</option>
-                    {rbDisplay}
-                </select>{` `}
-                <select name="wideout" onChange={changeData}>
-                    <option value="none">Choose your WR1</option>
-                    {wrDisplay}
-                </select>{` `}
-                <select name="wr2" onChange={changeData}>
-                    <option value="none">Choose your WR2</option>
-                    {wrDisplay}
-                </select>{` `}
-                <select name="tightend" onChange={changeData}>
-                    <option value="none">Choose your Tightend</option>
-                    {teDisplay}
-                </select>
-                <h3 className="createFormPositionGroup">Offensive Line</h3>
-                <select name="lefttackle" onChange={changeData}>
-                    <option value="none">Choose your Left Tackle</option>
-                    {ltDisplay}
-                </select>{` `}
-                <select name="leftguard" onChange={changeData}>
-                    <option value="none">Choose your Left Guard</option>
-                    {lgDisplay}
-                </select>{` `}
-                <select name="center" onChange={changeData}>
-                    <option value="none">Choose your Center</option>
-                    {cDisplay}
-                </select>{` `}
-                <select name="rightguard" onChange={changeData}>
-                    <option value="none">Choose your Right Guard</option>
-                    {rgDisplay}
-                </select>{` `}
-                <select name="righttackle" onChange={changeData}>
-                    <option value="none">Choose your Right Tackle</option>
-                    {rtDisplay}
-                </select>
-                <h3 className="createFormPositionGroup">Defensive Line</h3>
-                <select name="leftend" onChange={changeData}>
-                    <option value="none">Choose your Left End</option>
-                    {leDisplay}
-                </select>{` `}
-                <select name="dtackle" onChange={changeData}>
-                    <option value="none">Choose your Defensive Tackle</option>
-                    {dtDisplay}
-                </select>{` `}
-                <select name="rightend" onChange={changeData}>
-                    <option value="none">Choose your Right End</option>
-                    {reDisplay}
-                </select>
-                <h3 className="createFormPositionGroup">Linebackers</h3>
-                <select name="lolb" onChange={changeData}>
-                    <option value="none">Choose your Left Outside Linebacker</option>
-                    {lolbDisplay}
-                </select>{` `}
-                <select name="mlb" onChange={changeData}>
-                    <option value="none">Choose your Middle Linebacker</option>
-                    {mlbDisplay}
-                </select>{` `}
-                <select name="rolb" onChange={changeData}>
-                    <option value="none">Choose your Right Outside Linebacker</option>
-                    {rolbDisplay}
-                </select>
-                <h3 className="createFormPositionGroup">Secondary</h3>
-                <select name="cb" onChange={changeData}>
-                    <option value="none">Choose your Cornerback</option>
-                    {cbDisplay}
-                </select>{` `}
-                <select name="cb2" onChange={changeData}>
-                    <option value="none">Choose your CB2</option>
-                    {cbDisplay}
-                </select>{` `}
-                <select name="fs" onChange={changeData}>
-                    <option value="none">Choose your Free Safety</option>
-                    {fsDisplay}
-                </select>{` `}
-                <select name="ss" onChange={changeData}>
-                    <option value="none">Choose your Strong Safety</option>
-                    {ssDisplay}
-                </select><br></br><br></br>
-                <input type="submit" value="Create Team"/>
+                <span id="oSkillPositionsSpan">
+                    <h3 className="createFormPositionGroup">Offense Skill Positions</h3>
+                    <select className="playerSelect" name="quarterback" onChange={changeData}>
+                        <option value="none">Choose your QB</option>
+                        {qbDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="runningback" onChange={changeData}>
+                        <option value="none">Choose your RB</option>
+                        {rbDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="wideout" onChange={changeData}>
+                        <option value="none">Choose your WR1</option>
+                        {wrDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="wr2" onChange={changeData}>
+                        <option value="none">Choose your WR2</option>
+                        {wrDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="tightend" onChange={changeData}>
+                        <option value="none">Choose your Tightend</option>
+                        {teDisplay}
+                    </select>
+                </span>
+                <span id="olineSpan">
+                    <h3 className="createFormPositionGroup">Offensive Line</h3>
+                    <select className="playerSelect" name="lefttackle" onChange={changeData}>
+                        <option value="none">Choose your Left Tackle</option>
+                        {ltDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="leftguard" onChange={changeData}>
+                        <option value="none">Choose your Left Guard</option>
+                        {lgDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="center" onChange={changeData}>
+                        <option value="none">Choose your Center</option>
+                        {cDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="rightguard" onChange={changeData}>
+                        <option value="none">Choose your Right Guard</option>
+                        {rgDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="righttackle" onChange={changeData}>
+                        <option value="none">Choose your Right Tackle</option>
+                        {rtDisplay}
+                    </select>
+                </span>
+                <span id="dlineSpan">
+                    <h3 className="createFormPositionGroup">Defensive Line</h3>
+                    <select className="playerSelect" name="leftend" onChange={changeData}>
+                        <option value="none">Choose your Left End</option>
+                        {leDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="dtackle" onChange={changeData}>
+                        <option value="none">Choose your Defensive Tackle</option>
+                        {dtDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="rightend" onChange={changeData}>
+                        <option value="none">Choose your Right End</option>
+                        {reDisplay}
+                    </select>
+                </span>
+                <span id="lbSpan">
+                    <h3 className="createFormPositionGroup">Linebackers</h3>
+                    <select className="playerSelect" name="lolb" onChange={changeData}>
+                        <option value="none">Choose your Left Outside Linebacker</option>
+                        {lolbDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="mlb" onChange={changeData}>
+                        <option value="none">Choose your Middle Linebacker</option>
+                        {mlbDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="rolb" onChange={changeData}>
+                        <option value="none">Choose your Right Outside Linebacker</option>
+                        {rolbDisplay}
+                    </select>
+                </span>
+                <span id="secondarySpan">
+                    <h3 className="createFormPositionGroup">Secondary</h3>
+                    <select className="playerSelect" name="cb" onChange={changeData}>
+                        <option value="none">Choose your Cornerback</option>
+                        {cbDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="cb2" onChange={changeData}>
+                        <option value="none">Choose your CB2</option>
+                        {cbDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="fs" onChange={changeData}>
+                        <option value="none">Choose your Free Safety</option>
+                        {fsDisplay}
+                    </select>{` `}
+                    <select className="playerSelect" name="ss" onChange={changeData}>
+                        <option value="none">Choose your Strong Safety</option>
+                        {ssDisplay}
+                    </select><br></br><br></br>
+                </span>
+                <input id="submitNewTeam" type="submit" value="Create Team"/>
             </form>
             {currentPlayer === null? null : <PlayerHighlight player={currentPlayer}/>}
             {<OngoingTeam team={formData}/>}
-        </>
+        </div>
     )
 }
 

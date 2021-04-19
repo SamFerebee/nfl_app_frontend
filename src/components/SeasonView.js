@@ -13,7 +13,10 @@ const SeasonView = ({user, setUser, sendToTeamView}) => {
 
     useEffect(()=>{
         const orderedGames = season.games.sort((a,b)=> parseInt(a.week) - (b.week))
-        const list = orderedGames.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played ? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
+        const list = orderedGames.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played || season.current_week != s.week ? 
+        s.played? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : null
+        : 
+        <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
         setOpponentList(list);
         setRecordDisplay(
             <>
