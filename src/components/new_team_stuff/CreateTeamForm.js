@@ -21,23 +21,24 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
     const [cbDisplay, setCbDisplay]= useState(null);
     const [fsDisplay, setFsDisplay]= useState(null);
     const [ssDisplay, setSsDisplay]= useState(null);
-    let allQbs, allRbs;
-    let allWrs;
-    let allLts;
-    let allRts;
-    let allRgs;
-    let allLgs;
-    let allCs;
-    let allTes;
-    let allLes;
-    let allRes;
-    let allDts;
-    let allLolbs;
-    let allRolbs;
-    let allMlbs;
-    let allCbs;
-    let allFs;
-    let allSs;
+    const [allQbs, setAllQbs]=useState(null);
+    const [allRbs, setAllRbs]=useState(null);
+    const [allWrs, setAllWrs]=useState(null);
+    const [allLts, setAllLts]=useState(null);
+    const [allRts, setAllRts]=useState(null);
+    const [allRgs, setAllRgs]=useState(null);
+    const [allLgs, setAllLgs]=useState(null);
+    const [allCs, setAllCs]=useState(null);
+    const [allTes, setAllTes]=useState(null);
+    const [allLes, setAllLes]=useState(null);
+    const [allRes, setAllRes]=useState(null);
+    const [allDts, setAllDts]=useState(null);
+    const [allLolbs, setAllLolbs]=useState(null);
+    const [allRolbs, setAllRolbs]=useState(null);
+    const [allMlbs, setAllMlbs]=useState(null);
+    const [allCbs, setAllCbs]=useState(null);
+    const [allFs, setAllFs]=useState(null);
+    const [allSs, setAllSs]=useState(null);
     const [formData, setFormData] = useState({
         teamName: "",
         user: user.id,
@@ -90,126 +91,126 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
             .then(d => {
                 const tempQb = d.map((qb) => <option key={qb.name} value={qb.name}>{qb.name} ({qb.team}) - ${qb.contract}</option>);
                 setQbDisplay(tempQb);
-                allQbs = [...d]
+                setAllQbs(d);
             })
         fetch("http://localhost:3000/all_rbs")
             .then(r=>r.json())
             .then(d=> {
                 const tempRb = d.map((rb) => <option key={rb.name} value={rb.name}>{rb.name} ({rb.team}) - ${rb.contract}</option>);
                 setRbDisplay(tempRb);
-                allRbs=[...d];
+                setAllRbs(d);
             })
         fetch("http://localhost:3000/all_wrs")
             .then(r=>r.json())
             .then(d=> {
                 const tempWr = d.map((wr) => <option key={wr.name} value={wr.name}>{wr.name} ({wr.team}) - ${wr.contract}</option>);
                 setWrDisplay(tempWr);
-                allWrs=[...d];
+                setAllWrs(d);
             })
         fetch("http://localhost:3000/all_lts")
             .then(r=>r.json())
             .then(d=> {
                 const tempLt = d.map((lt) => <option key={lt.name} value={lt.name}>{lt.name} ({lt.team}) - ${lt.contract}</option>);
                 setLtDisplay(tempLt);
-                allLts=[...d];
+                setAllLts(d);
             })
         fetch("http://localhost:3000/all_rts")
             .then(r=>r.json())
             .then(d=> {
                 const tempRt = d.map((rt) => <option key={rt.name} value={rt.name}>{rt.name} ({rt.team}) - ${rt.contract}</option>);
                 setRtDisplay(tempRt);
-                allRts=[...d];
+                setAllRts(d);
         })
         fetch("http://localhost:3000/all_cs")
             .then(r=>r.json())
             .then(d=> {
                 const tempC = d.map((c) => <option key={c.name} value={c.name}>{c.name} ({c.team}) - ${c.contract}</option>);
                 setCDisplay(tempC);
-                allCs=[...d];
+                setAllCs(d);
         })
         fetch("http://localhost:3000/all_lgs")
             .then(r=>r.json())
             .then(d=> {
                 const tempLg = d.map((lg) => <option key={lg.name} value={lg.name}>{lg.name} ({lg.team}) - ${lg.contract}</option>);
                 setLgDisplay(tempLg);
-                allLgs=[...d];
+                setAllLgs(d);
         })
         fetch("http://localhost:3000/all_rgs")
             .then(r=>r.json())
             .then(d=> {
                 const tempRg = d.map((rg) => <option key={rg.name} value={rg.name}>{rg.name} ({rg.team}) - ${rg.contract}</option>);
                 setRgDisplay(tempRg);
-                allRgs=[...d];
+                setAllRgs(d);
         })
         fetch("http://localhost:3000/all_tes")
             .then(r=>r.json())
             .then(d=> {
                 const tempTe = d.map((te) => <option value={te.name} key={te.name}>{te.name} ({te.team}) - ${te.contract}</option>);
                 setTeDisplay(tempTe);
-                allTes=[...d];
+                setAllTes(d);
         })
         fetch("http://localhost:3000/all_les")
             .then(r=>r.json())
             .then(d=> {
                 const tempLe = d.map((le) => <option value={le.name} key={le.name}>{le.name} ({le.team}) - ${le.contract}</option>);
                 setLeDisplay(tempLe);
-                allLes=[...d];
+                setAllLes(d);
         })
         fetch("http://localhost:3000/all_res")
             .then(r=>r.json())
             .then(d=> {
                 const tempRe = d.map((re) => <option value={re.name} key={re.name}>{re.name} ({re.team}) - ${re.contract}</option>);
                 setReDisplay(tempRe);
-                allRes=[...d];
+                setAllRes(d);
         })
         fetch("http://localhost:3000/all_dts")
             .then(r=>r.json())
             .then(d=> {
                 const tempDt = d.map((dt) => <option value={dt.name} key={dt.name}>{dt.name} ({dt.team}) - ${dt.contract}</option>);
                 setDtDisplay(tempDt);
-                allDts=[...d];
+                setAllDts(d);
         })
         fetch("http://localhost:3000/all_lolbs")
             .then(r=>r.json())
             .then(d=> {
                 const tempLolb = d.map((lolb) => <option value={lolb.name} key={lolb.name}>{lolb.name} ({lolb.team}) - ${lolb.contract}</option>);
                 setLolbDisplay(tempLolb);
-                allLolbs=[...d];
+                setAllLolbs(d);
         })
         fetch("http://localhost:3000/all_rolbs")
             .then(r=>r.json())
             .then(d=> {
                 const tempRolb = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setRolbDisplay(tempRolb);
-                allRolbs = [...d];
+                setAllRolbs(d);
         })
         fetch("http://localhost:3000/all_mlbs")
             .then(r=>r.json())
             .then(d=> {
                 const tempMlb = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setMlbDisplay(tempMlb);
-                allMlbs =[...d];
+                setAllMlbs(d);
         })
         fetch("http://localhost:3000/all_cbs")
             .then(r=>r.json())
             .then(d=> {
                 const tempCb = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setCbDisplay(tempCb);
-                allCbs=[...d];
+                setAllCbs(d);
         })
         fetch("http://localhost:3000/all_ss")
             .then(r=>r.json())
             .then(d=> {
                 const tempSs = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setSsDisplay(tempSs);
-                allSs=[...d];
+                setAllSs(d);
         })
         fetch("http://localhost:3000/all_fs")
             .then(r=>r.json())
             .then(d=> {
                 const tempFs = d.map((player) => <option value={player.name} key={player.name}>{player.name} ({player.team}) - ${player.contract}</option>);
                 setFsDisplay(tempFs);
-                allFs=[...d];
+                setAllFs(d);
         })
         
     }, [])
@@ -558,91 +559,96 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
 
     return (
         <>
-            <h2>REMAINING BUDGET: ${salaryCap}</h2>
-            <form onSubmit={handleSubmit}>
-                Team name: <input type="text" name="teamName" onChange={changeData} value={formData.teamName} />
-                <br></br><br></br>
+            <h2 id="remainingbudget">REMAINING BUDGET: ${salaryCap}</h2>
+            <span id="createTeamName">Team name: <input type="text" name="teamName" onChange={changeData} value={formData.teamName} /> </span>
+            <form id="createTeamForm" onSubmit={handleSubmit}>
+                <br></br>
+                <h3 className="createFormPositionGroup">Offense Skill Positions</h3>
                 <select name="quarterback" onChange={changeData}>
                     <option value="none">Choose your QB</option>
                     {qbDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="runningback" onChange={changeData}>
                     <option value="none">Choose your RB</option>
                     {rbDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="wideout" onChange={changeData}>
                     <option value="none">Choose your WR1</option>
                     {wrDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="wr2" onChange={changeData}>
                     <option value="none">Choose your WR2</option>
                     {wrDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="tightend" onChange={changeData}>
                     <option value="none">Choose your Tightend</option>
                     {teDisplay}
-                </select><br></br><br></br>
+                </select>
+                <h3 className="createFormPositionGroup">Offensive Line</h3>
                 <select name="lefttackle" onChange={changeData}>
                     <option value="none">Choose your Left Tackle</option>
                     {ltDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="leftguard" onChange={changeData}>
                     <option value="none">Choose your Left Guard</option>
                     {lgDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="center" onChange={changeData}>
                     <option value="none">Choose your Center</option>
                     {cDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="rightguard" onChange={changeData}>
                     <option value="none">Choose your Right Guard</option>
                     {rgDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="righttackle" onChange={changeData}>
                     <option value="none">Choose your Right Tackle</option>
                     {rtDisplay}
-                </select><br></br><br></br>
+                </select>
+                <h3 className="createFormPositionGroup">Defensive Line</h3>
                 <select name="leftend" onChange={changeData}>
                     <option value="none">Choose your Left End</option>
                     {leDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="dtackle" onChange={changeData}>
                     <option value="none">Choose your Defensive Tackle</option>
                     {dtDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="rightend" onChange={changeData}>
                     <option value="none">Choose your Right End</option>
                     {reDisplay}
-                </select><br></br><br></br>
+                </select>
+                <h3 className="createFormPositionGroup">Linebackers</h3>
                 <select name="lolb" onChange={changeData}>
                     <option value="none">Choose your Left Outside Linebacker</option>
                     {lolbDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="mlb" onChange={changeData}>
                     <option value="none">Choose your Middle Linebacker</option>
                     {mlbDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="rolb" onChange={changeData}>
                     <option value="none">Choose your Right Outside Linebacker</option>
                     {rolbDisplay}
-                </select><br></br><br></br>
+                </select>
+                <h3 className="createFormPositionGroup">Secondary</h3>
                 <select name="cb" onChange={changeData}>
                     <option value="none">Choose your Cornerback</option>
                     {cbDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="cb2" onChange={changeData}>
                     <option value="none">Choose your CB2</option>
                     {cbDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="fs" onChange={changeData}>
                     <option value="none">Choose your Free Safety</option>
                     {fsDisplay}
-                </select><br></br><br></br>
+                </select>{` `}
                 <select name="ss" onChange={changeData}>
                     <option value="none">Choose your Strong Safety</option>
                     {ssDisplay}
                 </select><br></br><br></br>
-                <input type="submit" />
+                <input type="submit" value="Create Team"/>
             </form>
             {currentPlayer === null? null : <PlayerHighlight player={currentPlayer}/>}
             {<OngoingTeam team={formData}/>}

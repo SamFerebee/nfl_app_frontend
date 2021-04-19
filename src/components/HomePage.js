@@ -15,22 +15,25 @@ const HomePage = ({user, setUser, sendToLanding, sendToCreateTeam, sendToDeleteA
 
     const userControlBar = (
         <div id="userControls">
-                <button onClick={handleLogout}>Logout</button>
-                <button onClick={sendToEdit}>Edit Account Info</button>
+            <br></br>
+                <button onClick={handleLogout}>Logout</button><br></br>
+                <button onClick={sendToEdit}>Edit Account</button><br></br>
                 <button onClick={sendToDeleteAcct}>Delete Account</button> <br></br>
         </div>
     )
 
     return (
-        <>
-            <h1>Home</h1>
-            <h2>Welcome {user.username} </h2>
-            <button id="revealControls" onClick={revealUserControls}>User Controls</button>
+        <div id="homepage">
+            <h1 className="hometext">Home</h1>
+            <h2 className="hometext">Welcome {user.username} </h2>
+            <button id="revealControls" onClick={revealUserControls}></button>
             {showUserControls ? userControlBar : null}
-            <br></br><button onClick={sendToUserTeams}>See Your Teams</button>
-            <br></br>
-            <button onClick={sendToCreateTeam}>Create New Team</button>
-        </>
+            <span id="homeoptions">
+                <br></br><button onClick={sendToUserTeams}>See Your Teams</button>
+                <br></br>
+                <button onClick={sendToCreateTeam}>Create New Team</button>
+            </span>
+        </div>
     )
 }
 

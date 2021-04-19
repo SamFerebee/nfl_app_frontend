@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: salmon;
 }
 
 code {
@@ -12,19 +13,50 @@ code {
     monospace;
 }
 
+#revealControls{
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  overflow-x: hidden;
+  background-image: url("http://assets.stickpng.com/images/588a64e7d06f6719692a2d11.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: salmon;
+  border: none;
+}
 
 #userControls {
-  /* display: none; */
-  height: 100%; /* 100% Full-height */
-  /* width: 0;  0 width - change this with JavaScript */
-  /*position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: pink; /* Black*/
+  position: absolute;
+  top: 20px; /* Stay at the top */
+  right: 10px;
   overflow-x: hidden; /* Disable horizontal scroll */
   /*padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+#userControls button{
+  width: 100px;
+  border-radius: 12px;
+  padding: 5px 10px;
+  margin-top: 5px;
+  background-color: lightskyblue;
+}
+
+#landingText{
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: type 3s steps(60,end);
+}
+@keyframes type{
+  from {width: 0;}
+  to { width: 100%;}
 }
 
 .landingBox {
@@ -36,6 +68,7 @@ code {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  font-style: italic;
 }
 
 .landingBox > button {
@@ -87,5 +120,109 @@ input::placeholder{
   padding-left: 7px;
   font-size: 15px;
   
+}
+
+.hometext{
+  text-align: center;
+}
+
+#homeoptions{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#homeoptions button {
+  border-radius: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 150px;
+  background-color: lightskyblue;
+}
+
+#homeoptions button:hover {
+  background-color: magenta;
+}
+
+#playerhighlight {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  width: 100%;
+}
+
+#playerimage{
+  height: 231px;
+  width: 330px;
+
+}
+
+#playerInfo{
+  position:absolute;
+  left: 275px;
+  bottom: 15%;
+}
+
+#statDisplay{
+  position:absolute;
+  right: 400px;
+  bottom: 11%
+}
+
+#playerhighlight h3{
+  position:absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  bottom: 200px;
+}
+
+#remainingbudget{
+  left: 50%;
+  top: 5%;
+  position:absolute;
+  margin: 0;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#createTeamName{
+  margin: 0;
+  left: 50%;
+  top: 10%;
+  margin: 0;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position:absolute;
+
+}
+
+#createTeamForm{
+  top: 5%;
+  position:absolute;
+}
+
+#fullOngoingTeam{
+  display:none;
+}
+
+#ongoingOffense{
+  position:absolute;
+  bottom: 1%;
+  left: 30%;
+  display: none;
+}
+#ongoingDefense{
+  position:absolute;
+  bottom: 1%;
+  right: 40%;
+  display: none;
 }
 
