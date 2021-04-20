@@ -21,7 +21,7 @@ const DeleteAccount = ({user, setUser, sendToLanding}) =>{
     return (
         <>
             <h3>Are you sure you want to delete your account?</h3>
-            <button onClick={deleteAccount}>Delete</button>
+            <button  className="interiorButton" onClick={deleteAccount}>Delete</button>
         </>
     )
 }

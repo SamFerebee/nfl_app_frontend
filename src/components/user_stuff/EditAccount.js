@@ -36,12 +36,12 @@ const EditAccount = ({user, sendToHome, sendToEditPassword, setUser}) => {
 
     return (
         <div className="login">
-            <button onClick={sendToHome}>Return Home</button><br></br>
+            <button  className="interiorButton" onClick={sendToHome}>Return Home</button><br></br>
             <form onSubmit={edit}>
                 Username: <input type="text" name="name" value={formInfo.name} onChange={handleChange} placeholder={user.username} /><br></br>
-                <input type="submit" />
+                <input type="submit" id="submitNewPassword"/>
             </form><br></br>
-            <button onClick={sendToEditPassword}>Edit Password</button>
+            <button className="interiorButton" onClick={sendToEditPassword}>Edit Password</button>
 
         </div>
     )

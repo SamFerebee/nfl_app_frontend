@@ -59,7 +59,7 @@ const LoginPage = ({setCurrentUser, sendToHome}) => {
           <form onSubmit={login}>
               <input className="loginField" type="text" name="username" placeholder="Username" onChange={handleChange} value={formInfo.name}/> <br></br><br></br>
               <input className="loginField" type="password" name="password" placeholder="Password" onChange={handleChange} value={formInfo.password}/> <br></br><br></br>
-              <input type="submit" id="loginSubmit"/>
+              <input type="submit" id="loginSubmit" value="Login"/>
           </form>
         </div>
     )

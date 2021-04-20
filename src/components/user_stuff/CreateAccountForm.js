@@ -63,7 +63,7 @@ const CreateAccountForm = ({setCurrentUser, sendToHome}) => {
             <p></p><input className="signupField" type="email" name="email" placeholder="Email" onChange={handleCreateChange} value={createFormInfo.email}/>
             <p></p><input className="signupField" type="password" name="password" placeholder="Password" onChange={handleCreateChange} value={createFormInfo.password}/>
             <p></p><input className="signupField" type="password" name="confirmation" placeholder="Confirm Password" onChange={handleCreateChange} value={createFormInfo.confirmation}/><br></br><br></br>
-            <input type="submit" id="createAcctSubmit"/>
+            <input type="submit" id="createAcctSubmit" value="Create Account"/>
           </form>
         </div>
     )

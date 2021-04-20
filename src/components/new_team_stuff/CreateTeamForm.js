@@ -658,7 +658,7 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
                         {ssDisplay}
                     </select><br></br><br></br>
                 </span>
-                <input className="hvr-rectangle-out" id="submitNewTeam" type="submit" value="Create Team"/>
+                <input id="submitNewTeam" type="submit" value="Create Team"/>
             </form>
             {currentPlayer === null? null : <PlayerHighlight player={currentPlayer}/>}
             {<OngoingTeam team={formData}/>}

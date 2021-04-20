@@ -16,7 +16,7 @@ const SeasonView = ({user, setUser, sendToTeamView}) => {
         const list = orderedGames.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played || season.current_week != s.week ? 
         s.played? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : null
         : 
-        <button value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
+        <button className="interiorButton" value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
         setOpponentList(list);
         setRecordDisplay(
             <>
@@ -42,7 +42,7 @@ const SeasonView = ({user, setUser, sendToTeamView}) => {
         <>
         {opponentList}
         {recordDisplay}<br></br><br></br>
-        <Link to={`/teams/${team.id}`}> Return to Team View </Link>
+        <Link className="aLink" to={`/teams/${team.id}`}> Return to Team View </Link>
         </>
     )
 }

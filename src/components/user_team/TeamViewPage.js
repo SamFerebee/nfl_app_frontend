@@ -49,7 +49,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
         let t = user.teams.find((team) => team.id === id);
         setTheTeam(t);
         setTeamDisplay(<div>
-            <h2>Team: {t.name} <button onClick={enableEdit}>edit name</button> {editName ? editNameForm : null }</h2><br></br>
+            <h2>Team: {t.name} <button className="interiorButton" id="editTeamNameButton" onClick={enableEdit}>edit name</button> {editName ? editNameForm : null }</h2><br></br>
             Quarterback: {t.quarterback.name}<br></br>
             Runningback: {t.runningback.name}<br></br>
             WR1: {t.wide_receiver.name}<br></br>
@@ -76,7 +76,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
             Defense Rating: {t.defense_rating.toFixed(2)}<br></br>
             Overall: {t.overall_rating.toFixed(2)}<br></br><br></br>
         </div>);
-        const tseason = t.seasons.map((s, index) => <p key={s.id}><Link to={`/play/${t.id}/${s.id}`}> Season {index + 1} </Link> </p>)
+        const tseason = t.seasons.map((s, index) => <p key={s.id}><Link className="aLink" to={`/play/${t.id}/${s.id}`}> Season {index + 1} </Link> </p>)
         setShowSeasons(tseason);
     }, [editName, newName])
 
@@ -112,13 +112,13 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
         <>
             {theTeam === null ? null : teamDisplay}
             <br></br>
-            <button onClick={generateSeason}>Generate a season!</button>
-            <button onClick={() => setCompare((s)=>!s)}>Compare Team</button>
+            <button id="generateSeasonBtn" className="interiorButton" onClick={generateSeason}>Generate a season!</button>
+            <button  className="interiorButton" onClick={() => setCompare((s)=>!s)}>Compare Team</button>
             {compare ? <CompareTeamPage userTeam={theTeam}/> : null}
             {showSeasons}<br></br><br></br>
-            <button onClick={deleteTeam}>Delete This Team</button>
+            <button  className="interiorButton" onClick={deleteTeam}>Delete This Team</button>
             <br></br><br></br>
-            <Link to="/home">Return Home</Link>
+            <Link className="aLink" to="/home">Return Home</Link>
         </>
     )
 }

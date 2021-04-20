@@ -42,7 +42,7 @@ const HomePage = ({user, setUser, sendToLanding, sendToCreateTeam, sendToDeleteA
             </span>
             <span id="homeoptions">
                 <br></br><button onClick={sendToUserTeams}>See Your Teams</button>
-                <br></br>
+                <br></br><br></br><br></br>
                 <button onClick={sendToCreateTeam}>Create New Team</button>
             </span>
         </div>
