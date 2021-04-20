@@ -45,7 +45,7 @@ function App() {
   }, [])
 
   return (
-    <div id="body">
+    <div>
       {currentUser === null ? (
         <Switch>
           <Route exact path="/">

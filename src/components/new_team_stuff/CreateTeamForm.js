@@ -96,7 +96,7 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
         fetch("http://localhost:3000/all_rbs")
             .then(r=>r.json())
             .then(d=> {
-                const tempRb = d.map((rb) => <option key={rb.name} value={rb.name}>{rb.name} ({rb.team}) - ${rb.contract}</option>);
+                const tempRb = d.map((rb) => <option className="playerOption" key={rb.name} value={rb.name}>{rb.name} ({rb.team}) - ${rb.contract}</option>);
                 setRbDisplay(tempRb);
                 setAllRbs(d);
             })
@@ -560,7 +560,7 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
     return (
         <div id="fullCreateForm">
             <h2 id="remainingbudget">REMAINING BUDGET: ${salaryCap}</h2>
-            <span id="createTeamName">Team name: <input type="text" name="teamName" onChange={changeData} value={formData.teamName} /> </span>
+            <span id="createTeamName">Team name: <input type="text" name="teamName" id="teamNameField" onChange={changeData} value={formData.teamName} /> </span>
             <form id="createTeamForm" onSubmit={handleSubmit}>
                 <br></br>
                 <span id="oSkillPositionsSpan">
@@ -570,7 +570,7 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
                         {qbDisplay}
                     </select>{` `}
                     <select className="playerSelect" name="runningback" onChange={changeData}>
-                        <option value="none">Choose your RB</option>
+                        <option className="playerOption" value="none">Choose your RB</option>
                         {rbDisplay}
                     </select>{` `}
                     <select className="playerSelect" name="wideout" onChange={changeData}>
@@ -658,7 +658,7 @@ const CreateTeamForm = ({sendToHome, user, setUser}) => {
                         {ssDisplay}
                     </select><br></br><br></br>
                 </span>
-                <input id="submitNewTeam" type="submit" value="Create Team"/>
+                <input className="hvr-rectangle-out" id="submitNewTeam" type="submit" value="Create Team"/>
             </form>
             {currentPlayer === null? null : <PlayerHighlight player={currentPlayer}/>}
             {<OngoingTeam team={formData}/>}
