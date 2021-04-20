@@ -4,7 +4,7 @@ const PlayerHighlight = ({player}) => {
     const [statDisplay, setStatDisplay] = useState(null); 
 
     useEffect(()=>{
-        if(player.position === "Quarterback"){
+        if(player.position === "QB"){
             setStatDisplay(
                 <span id="statDisplay" className="threedtext">
                     <p><span className="playerStatDescription">Accuracy:</span> {player.accuracy}</p>
@@ -12,7 +12,7 @@ const PlayerHighlight = ({player}) => {
                     <p><span className="playerStatDescription">Speed:</span> {player.speed}</p>
                 </span>
             )
-        }else if(player.position === "Runningback"){
+        }else if(player.position === "RB"){
             setStatDisplay(
                 <span id="statDisplay" className="threedtext">
                     <p>Elusiveness: {player.elusiveness}</p>
@@ -20,7 +20,7 @@ const PlayerHighlight = ({player}) => {
                     <p>Speed: {player.speed} </p>
                 </span>
             )
-        }else if(player.position ==="Wide Receiver"){
+        }else if(player.position ==="WR"){
             setStatDisplay(
                 <span id="statDisplay" className="threedtext">
                     <p>Catching: {player.catching}</p>
@@ -28,7 +28,7 @@ const PlayerHighlight = ({player}) => {
                     <p>Speed: {player.speed}</p>
                 </span>
             )
-        }else if (player.position === "Left Tackle" || player.position === "Right Tackle" || player.position === "Center" || player.position === "Left Guard" || player.position === "Right Guard"){
+        }else if (player.position === "LT" || player.position === "RT" || player.position === "C" || player.position === "LG" || player.position === "RG"){
             setStatDisplay(
                 <span id="statDisplay" className="threedtext">
                     <p>Strength: {player.strength}</p>
@@ -36,7 +36,7 @@ const PlayerHighlight = ({player}) => {
                     <p>Run blocking: {player.run_block}</p>
                 </span>
             )
-        }else if(player.position === "Tight End"){
+        }else if(player.position === "TE"){
             setStatDisplay(
                 <span id="statDisplay" className="threedtext">
                     <p>Blocking: {player.blocking}</p>
@@ -44,7 +44,7 @@ const PlayerHighlight = ({player}) => {
                     <p>Speed: {player.speed}</p>
                 </span>
             )
-        }else if(player.position === "Left End" || player.position === "Right End" || player.position === "Defensive Tackle" ){
+        }else if(player.position === "LE" || player.position === "RE" || player.position === "DT" ){
             setStatDisplay(
                 <span id="statDisplay" className="threedtext">
                     <p>Pass Rush: {player.passrush}</p>

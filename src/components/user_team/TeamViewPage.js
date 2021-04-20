@@ -76,7 +76,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
             Defense Rating: {t.defense_rating.toFixed(2)}<br></br>
             Overall: {t.overall_rating.toFixed(2)}<br></br><br></br>
         </div>);
-        const tseason = t.seasons.map((s, index) => <p key={s.id}><Link className="aLink" to={`/play/${t.id}/${s.id}`}> Season {index + 1} </Link> </p>)
+        const tseason = t.seasons.map((s, index) => <p key={s.id}><Link className="aLink" className="aLink" to={`/play/${t.id}/${s.id}`}> Season {index + 1} </Link> </p>)
         setShowSeasons(tseason);
     }, [editName, newName])
 

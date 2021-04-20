@@ -220,7 +220,7 @@ input::placeholder{
 
 #playerInfo{
   position:absolute;
-  left: -10%;
+  left: -50px;
   bottom: 15%;
   text-align: left;
 }
@@ -340,6 +340,7 @@ input::placeholder{
 
 #oSkillPositionsSpan{
   position: relative;
+  left: 30px;
 }
 
 #oSkillPositionsSpan h3{
@@ -350,7 +351,7 @@ input::placeholder{
 
 #olineSpan{
   position: relative;
-  left: 110%;
+  left: 115%;
   top: -210px;
 }
 
@@ -372,7 +373,7 @@ input::placeholder{
 
 #lbSpan{
   position: relative;
-  left: 330%;
+  left: 325%;
   top: -571px;
 }
 #lbSpan h3{
@@ -383,7 +384,7 @@ input::placeholder{
 
 #secondarySpan{
   position: relative;
-  left: 440%;
+  left: 430%;
   top: -721px;
 }
 #secondarySpan h3{
