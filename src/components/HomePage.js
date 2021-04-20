@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import {Link, useParams} from "react-router-dom"
 
 const HomePage = ({user, setUser, sendToLanding, sendToCreateTeam, sendToDeleteAcct, sendToEdit, sendToUserTeams}) => {
     const [showUserControls, setShowUserControls] = useState(false);
@@ -26,8 +27,19 @@ const HomePage = ({user, setUser, sendToLanding, sendToCreateTeam, sendToDeleteA
         <div id="homepage">
             <h1 className="hometext">Home</h1>
             <h2 className="hometext">Welcome {user.username} </h2>
-            <button id="revealControls" onClick={revealUserControls}></button>
-            {showUserControls ? userControlBar : null}
+            {/* <button id="revealControls" onClick={revealUserControls}></button>
+            {showUserControls ? userControlBar : null} */}
+            <span id="menuToggle">
+                <input type="checkbox" id="revealCheck"/>
+                <span className="burger"></span>
+                <span className="burger"></span>
+                <span className="burger"></span>
+                <ul id="menu">
+                    <li onClick={handleLogout} className="burgeroption">Logout</li>
+                    <li onClick={sendToEdit} className="burgeroption">Edit Account</li>
+                    <li onClick={sendToDeleteAcct} className="burgeroption">Delete Account</li>
+                </ul>
+            </span>
             <span id="homeoptions">
                 <br></br><button onClick={sendToUserTeams}>See Your Teams</button>
                 <br></br>
