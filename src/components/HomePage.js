@@ -25,7 +25,7 @@ const HomePage = ({user, setUser, sendToLanding, sendToCreateTeam, sendToDeleteA
 
     return (
         <div id="homepage">
-            <h1 className="hometext">Home</h1>
+            
             <h2 className="hometext">Welcome {user.username} </h2>
             {/* <button id="revealControls" onClick={revealUserControls}></button>
             {showUserControls ? userControlBar : null} */}

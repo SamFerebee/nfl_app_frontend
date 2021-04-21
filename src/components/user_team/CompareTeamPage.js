@@ -20,20 +20,20 @@ const CompareTeamPage = ({userTeam}) => {
         setTeamToCompare(e.target.value)
         const theTeam = allTeams.find((team) => team.name === e.target.value);
         if (theTeam){
-            setComparedTeamStats(
-                <>
+            setComparedTeamStats( 
+                <span id="compareTeamInner">
                     <h2>{theTeam.name} vs {userTeam.name}</h2>
                     Offense Rating: {theTeam.offense_rating.toFixed(2)} vs. {userTeam.offense_rating.toFixed(2)}<br></br>
                     Defense Rating : {theTeam.defense_rating.toFixed(2)} vs. {userTeam.defense_rating.toFixed(2)}<br></br>
                     Overall: {theTeam.overall_rating.toFixed(2)} vs. {userTeam.overall_rating.toFixed(2)}
-                </>
+                </span>
             );
         }
     }
 
     return (
         <div>
-            <select onChange={handleChange}>
+            <select id="compareSelect" onChange={handleChange}>
                 <option value="none">Select a Team</option>
                 {teamsSelect}
             </select>

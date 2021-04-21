@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-const EditPassword = ({user, sendToHome}) => {
+const EditPassword = ({user, sendToHome, sendToEdit}) => {
     const [formInfo, setFormInfo] = useState({
         password: "",
         confirmation: ""
@@ -40,12 +40,13 @@ const EditPassword = ({user, sendToHome}) => {
     }
 
     return (
-        <div className="login">
-            <form onSubmit={submit}>
-                New Password: <input name="password" value={formInfo.password} onChange={handleChange} type="password"/>
-                Confirm Password: <input name="confirmation" value={formInfo.confirmation} onChange={handleChange}  type="password"/>
-                <input type="submit" />
+        <div id="editPWordForm">
+            <form id="updatePasswordForm" onSubmit={submit}>
+                <span id="newPasswordField" className="updateText">New Password: <input id="updatePasswordField" name="password" value={formInfo.password} onChange={handleChange} type="password"/> </span> <br></br>
+                <span id="confirmNewPasswordField" className="updateText">Confirm Password: <input id="updatePasswordConfirm" name="confirmation" value={formInfo.confirmation} onChange={handleChange}  type="password"/></span><br></br>
+                <input id="editPasswordSubmit" type="submit" value="update password" />
             </form>
+            <span id="bottomButtons"><button className="interiorButton" onClick={sendToEdit}>Edit Page</button>{"          "}<button className="interiorButton" onClick={sendToHome}>Homepage</button></span>
         </div>
     )
 }

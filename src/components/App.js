@@ -83,7 +83,7 @@ function App() {
             <EditAccount setUser={setCurrentUser} user={currentUser} sendToHome={sendToHome} sendToEditPassword={sendToEditPassword}/>
           </Route>
           <Route exact path="/edit_password">
-            <EditPassword user={currentUser} sendToHome={sendToHome} />
+            <EditPassword user={currentUser} sendToHome={sendToHome} sendToEdit={sendToEdit}/>
           </Route>
         </Switch>
       )}

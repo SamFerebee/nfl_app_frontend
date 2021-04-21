@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Advent Pro");
+
 body {
   margin: 0;
-  font-family: "Arial";
+  font-family: 'Advent Pro';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgb(2,0,36);
@@ -71,7 +73,7 @@ code {
   transform: translate(-50%, -50%);
 }
 
-#loginSubmit, #createAcctSubmit {
+#loginSubmit, #createAcctSubmit{
   padding: 20px 40px;
   background: none;
   border: none;
@@ -82,7 +84,7 @@ code {
   border: 2px solid black;
 
 }
-#loginSubmit:hover, #createAcctSubmit:hover {
+#loginSubmit:hover, #createAcctSubmit:hover, #editPasswordSubmit:hover {
   background-color: rgb(2, 2, 252);
 }
 
@@ -112,7 +114,7 @@ input::placeholder{
   color: grey;
 }
 
-.loginField, .signupField, #teamNameField, #userUpdateField, #emailUpdateField{
+.loginField, .signupField, #teamNameField, #userUpdateField, #emailUpdateField, #updatePasswordField, #updatePasswordConfirm{
   background-color: lightskyblue;
   border-radius: 4px;
   color: black;
@@ -126,6 +128,9 @@ input::placeholder{
 
 .hometext{
   text-align: center;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 50px;
 }
 
 #homeoptions{
@@ -451,6 +456,7 @@ input::placeholder{
   text-decoration:  none;
   color: #232323;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 .burgeroption:hover{
   color:lightskyblue;
@@ -551,9 +557,7 @@ input::placeholder{
   padding: 5px 10px;
   letter-spacing: 2px;
   cursor: pointer;
-  position:absolute;
-  top: 50px;
-  left: 20px;
+  
 
 }
 
@@ -563,8 +567,8 @@ input::placeholder{
 
 #generateSeasonBtn{
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 15%;
+  bottom: 1%;
   -ms-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
 }
@@ -637,7 +641,7 @@ input::placeholder{
 
 #emailField{
   position: absolute;
-  left: 37px;
+  left: 31px;
 }
 
 .updateText{
@@ -646,7 +650,7 @@ input::placeholder{
   font-weight: bolder;
 }
 
-#editReturnHome, #deleteReturnHome, #userTeamHome, #teamReturnHome, #teamViewReturn{
+#editReturnHome, #deleteReturnHome, #userTeamHome, #teamViewReturn{
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -665,4 +669,402 @@ input::placeholder{
   letter-spacing: 1px;
   padding: 5px 5px;
   background-color: rgba(0,150,255,1);
+}
+
+#editPasswordSubmit{
+  padding: 20px 40px;
+	background: none;
+	border: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 3px;
+	cursor: pointer;
+  border: 2px solid white;
+  color:white;
+  position:absolute;
+  top: 90px;
+  left: 238px;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+#updatePasswordForm{
+  position: absolute;
+  top: 30%;
+  left: 47%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  color:white;
+}
+
+#newPasswordField{
+  position: absolute;
+  top: -14px;
+  left: 31px;
+}
+
+#confirmPasswordField{
+  position: absolute;
+
+}
+
+#editPWordForm{
+  border: 1px solid black;
+}
+
+#bottomButtons{
+  position:absolute;
+  bottom: 10%;
+  left: 725px;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+#gen{
+  position: absolute;
+  background: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 10px;
+  padding: 10px 10px;
+  top: 5%;
+} 
+
+#gen:hover{
+  background-color: pink;
+}
+
+#qbPos{
+  position: relative;
+  left: 5px;
+}
+
+#rbPos{
+  position: relative;
+  top: -38px;
+  left: 185px;
+}
+#wrPos{
+  position: relative;
+  top: -76px;
+  left: 365px;
+}
+#ltPos{
+  position: relative;
+  top: -55px;
+  left: 5px;
+}
+
+#lgPos{
+  position: relative;
+  top: -93px;
+  left: 185px;
+}
+
+#cPos{
+  position: relative;
+  top: -131px;
+  left: 365px;
+}
+#rgPos{
+  position: relative;
+  top: -90px;
+  left: 5px;
+}
+#rtPos{
+  position: relative;
+  top: -128px;
+  left: 185px;
+}
+
+#tePos{
+  position: relative;
+  top: -166px;
+  left: 365px;
+}
+
+#lePos{
+  position: relative;
+  top: -148px;
+  left: 5px;
+}
+#dtPos{
+  position: relative;
+  top: -186px;
+  left: 185px;
+}
+#rePos{
+  position: relative;
+  top: -224px;
+  left: 365px;
+}
+#lolbPos{
+  position: relative;
+  top: -171px;
+  left: 5px;
+}
+#mlbPos{
+  position: relative;
+  top: -209px;
+  left: 185px;
+}
+#rolbPos{
+  position: relative;
+  top: -245px;
+  left: 365px;
+}
+#cbPos{
+  position: relative;
+  top: -204px;
+  left: 5px;
+}
+#fsPos{
+  position: relative;
+  top: -260px;
+  left: 185px;
+}
+#ssPos{
+  position: relative;
+  top: -298px;
+  left: 365px;
+}
+
+#offensePositionsSpan{
+  color:white;
+  top: 60px;
+  position:absolute;
+}
+
+#offensePositionsSpan h3{
+  color:white;
+  position: relative;
+  left: 195px;
+  font-size: 20px;
+}
+
+#defensePositionsSpan{
+  color:white;
+  position: absolute;
+  top: 490px;
+}
+#defensePositionsSpan h3{
+  color:white;
+  position: relative;
+  top: -130px;
+  left: 195px;
+  font-size: 20px;
+}
+
+.posHeader{
+  color: white;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+.teamPosPic{
+  height: 70px;
+  width: 90px;
+}
+
+#offensePicture, #defensePicture{
+  background-color: #303030;
+  border: 2px solid white;
+  border-radius: 4px;
+  
+}
+
+#offensePicture{
+  position: absolute;
+  top: 110px;
+  left: 40%;
+  height: 250px;
+  width: 840px;
+}
+
+#qbPic{
+  position: relative;
+  top: 90px;
+  right: 350px;
+}
+#rbPic{
+  position:relative;
+  top: 88px;
+  left: 370px;
+  
+}
+#wr1Pic{
+  position: relative;
+  
+}
+#wr2Pic{
+  position: relative;
+  left: 113px;
+  top: 7px;
+}
+#tePic{
+  position: relative;
+  top: 30px;
+  right: 9px;
+}
+#ltPic{
+  position: relative;
+  top:7px;
+  right: 6px;
+  
+}
+#lgPic{
+  position: relative;
+  top: 7px;
+  right: 3px;
+  
+}
+#cPic{
+  position: relative;
+  top: 7px;
+  left: 10px;
+}
+#rgPic{
+  position: relative;
+  top: 7px;
+  left: 15px;
+  
+}
+#rtPic{
+  position: relative;
+  top: 7px;
+  left: 30px;
+}
+
+#defensePicture{
+  position: absolute;
+  top: 420px;
+  left: 40%;
+  height: 250px;
+  width: 840px;
+}
+
+#rePic{
+  position: relative;
+  top: 165px;
+  left: 280px;
+}
+#dtPic{
+  position: relative;
+  top: 165px;
+  left: 300px;
+}
+#lePic{
+  position: relative;
+  top: 165px;
+  left: 320px;
+}
+
+#rolbPic{
+  position: relative;
+  top: 95px;
+  right: 65px;
+}
+
+#mlbPic{
+  position: relative;
+  top: 65px;
+  left: 29px;
+}
+
+#lolbPic{
+  position: relative;
+  top: 95px;
+  left: 120px;
+}
+#cbPic{
+  position: relative;
+  top: 130px;
+  left: -520px;
+
+}
+#cb2Pic{
+  position: relative;
+  top: 130px;
+  left: 100px;
+
+}
+#fsPic{
+  position: relative;
+  top: -3px;
+  right: 500px;
+}
+#ssPic{
+  position: relative;
+  left: 600px;
+  top: -60px;
+}
+
+#teamNameInfo{
+  position: absolute;
+  color:white;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+#offenseRating{
+  position: relative;
+  left: 220px;
+  top: -20px;
+}
+#defenseRating{
+  position: relative;
+  left: 220px;
+  top: -167px;
+}
+
+#deleteTeamButton{
+  position:absolute;
+  left: 80%;
+  top: 20px;
+}
+
+#teamReturnHome{
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+#seasonBox{
+  position:absolute;
+  bottom: -20%;
+  left: 180px;
+}
+
+#compareButton{
+  position: absolute;
+  left: 75%;
+  bottom: 1%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
+#compareSelect{
+  position:absolute;
+  bottom: -3%;
+  left: 980px;
+}
+#compareTeamInner{
+  position:absolute;
+  bottom: -17%;
+  left: 930px;
+  color:white;
+}
+
+#overall{
+  position: absolute;
+  top: 53px;
+  left: 15px;
 }
