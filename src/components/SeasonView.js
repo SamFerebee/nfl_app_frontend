@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
 import ScoreDisplay from "./ScoreDisplay"
 
-const SeasonView = ({user, setUser, sendToTeamView}) => {
+const SeasonView = ({user, setUser, sendToTeamView, sendToHome}) => {
     const params = useParams();
     const teamId = parseInt(params.team);
     const team = user.teams.find((t)=> t.id === teamId);
@@ -16,7 +16,7 @@ const SeasonView = ({user, setUser, sendToTeamView}) => {
         const list = orderedGames.map((s) => <p key={s.id}>Week {s.week} vs. {s.nfl_name} {s.played || season.current_week != s.week ? 
         s.played? <ScoreDisplay userScore={s.user_score} nflScore={s.nfl_score} /> : null
         : 
-        <button className="interiorButton" value={s.id} onClick={simGame}>Simulate Game</button>}</p>)
+        <button className="weekSimButton" value={s.id} onClick={simGame}>Sim Game</button>}</p>)
         setOpponentList(list);
         setRecordDisplay(
             <>
@@ -37,12 +37,17 @@ const SeasonView = ({user, setUser, sendToTeamView}) => {
             .then(r=>r.json())
             .then(d=>setUser(d))
     }
+    
+    const handleBack =() =>{
+        sendToTeamView(team.id);
+    }
 
     return (
         <>
         {opponentList}
         {recordDisplay}<br></br><br></br>
-        <Link className="aLink" to={`/teams/${team.id}`}> Return to Team View </Link>
+        <button className="interiorButton" onClick={handleBack}>Return To Team</button>
+        <button id="teamViewReturn" className="interiorButton" onClick={sendToHome}>Homepage</button>
         </>
     )
 }

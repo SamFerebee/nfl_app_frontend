@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {Link, useParams} from "react-router-dom"
 import CompareTeamPage from "./CompareTeamPage"
 
-const TeamViewPage = ({user, setUser, sendToTeamList}) => {
+const TeamViewPage = ({user, setUser, sendToTeamList, sendToHome}) => {
     const params = useParams();
     const id = parseInt(params.id);
     const [compare, setCompare] = useState(false);
@@ -118,7 +118,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList}) => {
             {showSeasons}<br></br><br></br>
             <button  className="interiorButton" onClick={deleteTeam}>Delete This Team</button>
             <br></br><br></br>
-            <Link className="aLink" to="/home">Return Home</Link>
+            <button  id="teamReturnHome" className="interiorButton" onClick={sendToHome}>Homepage</button>
         </>
     )
 }

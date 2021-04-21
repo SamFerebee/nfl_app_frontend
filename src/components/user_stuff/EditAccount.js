@@ -2,7 +2,8 @@ import React, {useState} from "react"
 
 const EditAccount = ({user, sendToHome, sendToEditPassword, setUser}) => {
     const [formInfo, setFormInfo] = useState({
-        name: ""
+        name: "",
+        email: ""
     })
 
     const handleChange = e => {
@@ -36,12 +37,13 @@ const EditAccount = ({user, sendToHome, sendToEditPassword, setUser}) => {
 
     return (
         <div className="login">
-            <form onSubmit={edit}>
-                Username: <input type="text" name="name" value={formInfo.name} onChange={handleChange} placeholder={user.username} /><br></br>
-                <input type="submit" id="submitNewPassword" value="Update"/>
+            <form id="updateUserForm" onSubmit={edit}>
+                <span className="updateText">Username:</span> <input id="userUpdateField" type="text" name="name" value={formInfo.name} onChange={handleChange} placeholder={user.username} /><br></br>
+                <span id="emailField"><span className="updateText">Email:</span> <input id="emailUpdateField" type="text" name="email" value={formInfo.email} onChange={handleChange} placeholder={user.email} /></span><br></br>
+                <input type="submit" id="submitUserInfo" value="Update"/>
             </form><br></br>
-            <button className="interiorButton" onClick={sendToEditPassword}>Edit Password</button><br></br>
-            <button  className="interiorButton" onClick={sendToHome}>Return Home</button>
+            <button id="editPasswordButton" className="interiorButton" onClick={sendToEditPassword}>Edit Password</button><br></br>
+            <button  id="editReturnHome" className="interiorButton" onClick={sendToHome}>Homepage</button>
         </div>
     )
 }

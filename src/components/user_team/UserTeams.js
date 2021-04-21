@@ -8,7 +8,7 @@ const UserTeams = ({user, sendToHome}) => {
             <h2>Your teams:</h2>
             {user.teams.length > 0 ? displayTeams : <>You have no teams!</>}
             <br></br><br></br>
-            <button className="interiorButton" onClick={sendToHome}>Return to Home</button>
+            <button id="userTeamHome" className="interiorButton" onClick={sendToHome}>Homepage</button>
             <br></br>
             {/* <Link to="/home">Return Home</Link> */}
         </>

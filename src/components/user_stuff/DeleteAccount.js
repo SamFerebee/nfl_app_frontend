@@ -1,6 +1,6 @@
 import React from "react"
 
-const DeleteAccount = ({user, setUser, sendToLanding}) =>{
+const DeleteAccount = ({user, setUser, sendToLanding, sendToHome}) =>{
 
     const deleteAccount = () => {
         const token = localStorage.getItem("token");
@@ -20,8 +20,9 @@ const DeleteAccount = ({user, setUser, sendToLanding}) =>{
 
     return (
         <>
-            <h3>Are you sure you want to delete your account?</h3>
-            <button  className="interiorButton" onClick={deleteAccount}>Delete</button>
+            <h3 id="deleteAccountText">Are you sure you want to delete your account?</h3>
+            <button  id="deleteAccountButton" className="interiorButton" onClick={deleteAccount}>Delete</button>
+            <button id="deleteReturnHome" className="interiorButton" onClick={sendToHome}>HomePage</button>
         </>
     )
 }

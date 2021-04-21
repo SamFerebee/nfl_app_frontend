@@ -26,6 +26,7 @@ function App() {
   const sendToEditPassword = () => history.push("/edit_password")
   const sendToEdit = () => history.push("/edit_account")
   const sendToUserTeams = () => history.push("/view_user_teams")
+  const sendToTeamView = (id) => history.push(`/teams/${id}`)
 
   /////AUTO LOGIN
   useEffect(()=> {
@@ -70,13 +71,13 @@ function App() {
             <UserTeams user={currentUser} sendToHome={sendToHome}/>
           </Route>
           <Route exact path="/teams/:id">
-              <TeamViewPage user={currentUser} setUser={setCurrentUser} sendToTeamList={sendToUserTeams}/>
+              <TeamViewPage user={currentUser} setUser={setCurrentUser} sendToTeamList={sendToUserTeams} sendToHome={sendToHome}/>
           </Route>
           <Route exact path="/play/:team/:season">
-            <SeasonView user={currentUser} setUser={setCurrentUser} />
+            <SeasonView user={currentUser} setUser={setCurrentUser} sendToHome={sendToHome} sendToTeamView={sendToTeamView}/>
           </Route>
           <Route exact path="/delete_account">
-            <DeleteAccount setUser={setCurrentUser} user={currentUser} sendToLanding={sendToLanding}/>
+            <DeleteAccount setUser={setCurrentUser} user={currentUser} sendToLanding={sendToLanding} sendToHome={sendToHome}/>
           </Route>
           <Route exact path="/edit_account">
             <EditAccount setUser={setCurrentUser} user={currentUser} sendToHome={sendToHome} sendToEditPassword={sendToEditPassword}/>
