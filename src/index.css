@@ -650,7 +650,7 @@ input::placeholder{
   font-weight: bolder;
 }
 
-#editReturnHome, #deleteReturnHome, #userTeamHome, #teamViewReturn{
+#editReturnHome, #deleteReturnHome, #userTeamHome{
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -1155,4 +1155,86 @@ input::placeholder{
   position: relative;
   left: 71px;
   top: 4px;
+}
+
+.oppositionLogo{
+  height: 35px;
+  width: 45px;
+  position: relative;
+  top: 5px;
+}
+
+.seasonWeek{
+  color:white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  position: relative;
+  left: 100px;
+  font-weight: bold;
+}
+
+#seasonRecord{
+  color: white;
+}
+
+#matchupHeader{
+  color:white;
+  position: absolute;
+  left: 65%;
+  top: 15%;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#seasonComplete{
+  position:absolute;
+  top: 15%;
+  left: 65%;
+  color:white;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 30px;;
+}
+
+#scoreSpan{
+  position: relative;
+  top: 7px;
+}
+
+#seasonRecord{
+  position: relative;
+  left: 230px;
+  top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#returnToTeamButton{
+  bottom: 40px;
+  left: 47%;
+  position: absolute;
+  -ms-transform: translate(-75%, 0%);
+  transform: translate(-75%, 0%);
+}
+#teamViewReturn{
+  position: absolute;
+  bottom: 40px;
+  left: 48%;
+  -ms-transform: translate(25%, 0%);
+  transform: translate(25%, 0%);
+}
+
+#matchupOppLogo{
+  height: 100px;
+  width: 150px;
+}
+
+#viewTeamLogo{
+  position:absolute;
+  height: 50px;
+  width: 40px;
+  left: -55px;
+  top: 20px;
 }

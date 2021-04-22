@@ -49,7 +49,7 @@ const TeamViewPage = ({user, setUser, sendToTeamList, sendToHome}) => {
         let t = user.teams.find((team) => team.id === id);
         setTheTeam(t);
         setTeamDisplay(<div>
-            <span id="teamNameInfo"><h2>Team: {t.name} <button className="interiorButton" id="editTeamNameButton" onClick={enableEdit}>edit name</button> {editName ? editNameForm : null }</h2><br></br><span id="overall">Overall: {t.overall_rating.toFixed(2)}</span></span><br></br>
+            <span id="teamNameInfo"><img id="viewTeamLogo" src={t.logo} /><h2>Team: {t.name} <button className="interiorButton" id="editTeamNameButton" onClick={enableEdit}>edit name</button> {editName ? editNameForm : null }</h2><br></br><span id="overall">Overall: {t.overall_rating.toFixed(2)}</span></span><br></br>
             <span id="offensePositionsSpan">
                 <h3>OFFENSE</h3>
                 <span id="offenseRating">{t.offense_rating.toFixed(2)}</span><br></br>

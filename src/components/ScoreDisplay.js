@@ -1,8 +1,8 @@
 import React from "react"
 
 const ScoreDisplay = ({userScore, nflScore}) => {
-    const win = <>{userScore}-{nflScore} <span style={{color:"green"}}><b>WIN</b></span></>
-    const loss = <>{userScore}-{nflScore} <span style={{color:"red"}}><b>LOSS</b></span></>
+    const win = <span id="scoreSpan"><br></br>Result: {userScore}-{nflScore} <span style={{color:"#00FF1A"}}><b>WIN</b><br></br></span></span>
+    const loss = <span id="scoreSpan"><br></br>Result: {userScore}-{nflScore} <span style={{color:"red"}}><b>LOSS</b><br></br></span></span>
     return(
         <>
             {userScore > nflScore ? win : loss}
