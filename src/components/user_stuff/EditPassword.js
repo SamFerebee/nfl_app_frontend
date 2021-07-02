@@ -44,7 +44,7 @@ const EditPassword = ({user, sendToHome, sendToEdit}) => {
             <form id="updatePasswordForm" onSubmit={submit}>
                 <span id="newPasswordField" className="updateText">New Password: <input id="updatePasswordField" name="password" value={formInfo.password} onChange={handleChange} type="password"/> </span> <br></br>
                 <span id="confirmNewPasswordField" className="updateText">Confirm Password: <input id="updatePasswordConfirm" name="confirmation" value={formInfo.confirmation} onChange={handleChange}  type="password"/></span><br></br>
-                <input id="editPasswordSubmit" type="submit" value="update password" />
+                <input id="editPasswordSubmit" type="submit" value="update password" className="aFormSubmit"/>
             </form>
             <span id="bottomButtons"><button className="interiorButton" onClick={sendToEdit}>Edit Page</button>{"          "}<button className="interiorButton" onClick={sendToHome}>Homepage</button></span>
         </div>

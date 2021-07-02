@@ -40,8 +40,8 @@ const TeamViewPage = ({user, setUser, sendToTeamList, sendToHome}) => {
     }
 
     const editNameForm = (
-        <form onSubmit={handleEditNameSubmit}>
-            <input type="text" name="name" placeholder="New Name" onChange={nameChange} value={newName.name} /> <input type="submit" />
+        <form id="editNameForm" onSubmit={handleEditNameSubmit}>
+            <input id="newTeamNameField" type="text" name="name" placeholder="New Name" onChange={nameChange} value={newName.name} /> <input type="submit" value="update" className="aFormSubmit" id="updateTeamNameSubmit" />
         </form>
     )
 
